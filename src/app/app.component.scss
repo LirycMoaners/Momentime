@@ -1,0 +1,13 @@
+@import './shared/theme.scss';
+
+main-bar {
+  @media screen and (min-width: $screen-md-min) {
+    height: 70px;
+    top:-70px;
+    transition: all 1s;
+
+    &.show {
+      top:0;
+    }
+  }
+}

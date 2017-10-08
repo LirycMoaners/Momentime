@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-family: "Raisin des Sables";
+  src: url("assets/font/Raisin-des-Sables.ttf");
+}
+
+@font-face {
+  font-family: "KG Somebody That I Used To Know";
+  src: url("assets/font/KGSomebodyThatIUsedToKnow.ttf");
+}
+
+@font-face {
+  font-family: "She Always Walks Alone Demo";
+  src: url("assets/font/She-Always-Walks-Alone-Demo.ttf");
+}
+
+* {
+  font-family: "She Always Walks Alone Demo";
+}
+
+body {
+  margin: 0;
+}

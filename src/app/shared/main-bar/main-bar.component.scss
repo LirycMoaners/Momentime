@@ -1,0 +1,48 @@
+@import '../theme.scss';
+
+:host{
+  position: fixed;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 200;
+  height: 70px;
+  border-bottom: 1px solid white;
+}
+
+.logo {
+  position: relative;
+  top: -10px;
+  height: 130%;
+  margin: 0 50px;
+}
+
+.menu-item {
+  display: inline-block;
+  color: white;
+  height: 70px;
+  width: 200px;
+  text-align: center;
+  vertical-align: top;
+  border-left: 1px solid white;
+  margin-left: -10px;
+
+  span {
+    font-family: "KG Somebody That I Used To Know";
+    font-weight: bold;
+    line-height: 70px;
+    font-size: 1.5em;
+  }
+}
+
+.social{
+  float: right;
+  height: 100%;
+  width: 50px;
+  vertical-align: top;
+  margin: 0 5px;
+
+  img{
+    position: relative;
+    top: 10px;
+  }
+}

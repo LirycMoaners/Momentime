@@ -1,0 +1,147 @@
+@import '../shared/crossfade.scss';
+
+.block {
+  width: 1000px;
+  margin: auto;
+}
+
+p {
+  font-family: "KG Somebody That I Used To Know";
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  margin-top: 0;
+}
+
+.home-slider{
+  height: 800px;
+
+  .crossfade {
+    figure {
+      animation: imageAnimation 18s linear infinite 0s;
+
+      &:nth-child(1) {
+        background-image: $slideshow1;
+      }
+      &:nth-child(2) {
+        animation-delay: 6s;
+        background-image: $slideshow2;
+      }
+      &:nth-child(3) {
+        animation-delay: 12s;
+        background-image: $slideshow3;
+      }
+    }
+  }
+
+  .menu {
+    position: absolute;
+    left: 5%;
+    width: 20%;
+    height: 700px;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    padding: 50px 0;
+
+    .logo{
+      position: relative;
+      width: 120%;
+      left: -10%;
+      margin-bottom: 30px;
+    }
+
+    .menu-item {
+      text-align: center;
+      margin: 10px 0;
+      a{
+        font-family: "KG Somebody That I Used To Know";
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        font-size: 1.8em;
+      }
+    }
+  }
+}
+
+.presentation {
+  height: 300px;
+  background-color: rgba(0,0,0,0.8);
+  color: white;
+  padding: 50px;
+
+  span {
+    font-size: 3em;
+  }
+}
+
+.portfolio {
+  height: 800px;
+}
+
+.pricing {
+  height: 375px;
+  background-color: rgb(10, 10, 10);
+  color: white;
+
+  .left {
+    float: left;
+    width: 50%;
+    text-align: center;
+    border: 1px solid white;
+    box-sizing: border-box;
+  }
+
+  .right {
+    float: right;
+    width: 50%;
+    text-align: center;
+    border: 1px solid white;
+    box-sizing: border-box;
+  }
+
+  .title-pricing {
+    font-size: 3em;
+    margin-top: 30px;
+  }
+
+  p {
+    margin-top: 0;
+  }
+
+  button {
+    padding: 15px;
+    height: 80px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: white;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 54px;
+  }
+}
+
+.about {
+  height: 675px;
+  background: #00ff00 url("../../assets/image/_DSC0763.jpg") no-repeat fixed center;
+  background-size: cover;
+  padding: 50px;
+
+  .about-content {
+    width: 400px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.288);
+
+    span {
+      font-size: 3em;
+    }
+  }
+}
+
+.contact {
+  height: 500px;
+}
+
+.follow {
+
+}
