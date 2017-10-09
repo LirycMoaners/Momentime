@@ -17,6 +17,7 @@ p {
 
 .home-slider{
   height: 800px;
+  background-color: #0a0a0a;
 
   .crossfade {
     figure {
@@ -68,7 +69,7 @@ p {
 
 .presentation {
   overflow: auto;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgb(30,30,30);
   color: white;
   padding: 50px;
 
@@ -80,6 +81,7 @@ p {
 .portfolio {
   overflow: auto;
   font-size: 0;
+  background-color: white;
 
   span {
     display: block;
@@ -92,7 +94,7 @@ p {
     overflow: hidden;
     position: relative;
     display: inline-block;
-    height: 300px;
+    height: 400px;
     width: 100%;
     border: 1px solid black;
     box-sizing: border-box;
@@ -126,9 +128,9 @@ p {
 
 .pricing {
   overflow: auto;
-  background-color: rgb(10, 10, 10);
   color: white;
   font-size: 0;
+  background: #0a0a0a;
 
   .content-pricing {
     display: inline-block;
@@ -180,15 +182,30 @@ p {
     span {
       font-size: 3em;
     }
+
+    .signature {
+      text-align: right;
+      font-family: "Raisin des Sables";
+      font-size: 2em;
+      line-height: 1em;
+    }
   }
 }
 
 .contact {
   height: 500px;
+  background-color: #0a0a0a;
+  color: white;
 }
 
 .follow {
+  height: 300px;
+  background-color: white;
+}
 
+.footer {
+  height: 100px;
+  background-color: rgb(30,30,30);
 }
 
 .arrow {

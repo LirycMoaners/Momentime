@@ -13,7 +13,7 @@ export const anim = trigger('routerAnimation', [
       {optional: true}),
     // move page off screen right on leave
     query(':leave',
-      animate('1000ms ease',
+      animate('1500ms ease',
         style({
           position: 'fixed',
           width: '100%',
@@ -24,7 +24,7 @@ export const anim = trigger('routerAnimation', [
     {optional: true}),
     // move page in screen from left to right
     query(':enter',
-      animate('1000ms ease',
+      animate('2000ms ease',
         style({
           opacity: 1,
           transform: 'scale(1)',
