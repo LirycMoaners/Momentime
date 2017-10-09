@@ -1,11 +1,21 @@
-$logo : url("../../assets/image/logo-border.png");
-$logo-negatif : url("../../assets/image/logo-negatif.png");
+$logo : url("/assets/image/logo-border.png");
+$logo-negatif : url("/assets/image/logo-negatif.png");
+$logo-mini : url("/assets/image/appli06.png");
 
-$background-welcome : url("../../assets/image/_DSC0263.jpg");
-$flash : url("../../assets/image/cameraflash.png");
+$facebook : url("/assets/image/facebook-black-white.svg");
+$instagram : url("/assets/image/instagram-black-white.svg");
+$youtube : url("/assets/image/youtube-black-white.svg");
 
-$slideshow1 : url("../../assets/image/_DSC0466.jpg");
-$slideshow2 : url("../../assets/image/_DSC8568.jpg");
-$slideshow3 : url("../../assets/image/_DSC0570.jpg");
+$background-welcome : url("/assets/image/_dsc0263.jpg");
+$flash : url("/assets/image/cameraflash.png");
 
-$arrow-up : url("../../assets/image/arrow-up.png");
+$slideshow1 : url("/assets/image/_dsc0466.jpg");
+$slideshow2 : url("/assets/image/_dsc8568.jpg");
+$slideshow3 : url("/assets/image/_dsc0570.jpg");
+
+$arrow-up : url("/assets/image/arrow-up.png");
+
+@mixin image($img, $width, $height) {
+  background: $img no-repeat center;
+  background-size: $width $height;
+}
