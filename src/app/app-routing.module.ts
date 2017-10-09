@@ -7,11 +7,13 @@ import { HomeComponent } from './home/home.component';
 const appRoutes: Routes = [
   {
     path: '',
-    component: WelcomeComponent
+    component: WelcomeComponent,
+    data: { animation: 'welcome' }
   },
   {
     path: 'accueil',
-    component: HomeComponent
+    component: HomeComponent,
+    data: { animation: 'home' }
   },
   { path: '**', component: PageNotFoundComponent }
 ];

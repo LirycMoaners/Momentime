@@ -21,7 +21,7 @@ import { MainBarService } from './shared/main-bar/main-bar.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [MainBarService],
   bootstrap: [AppComponent]
