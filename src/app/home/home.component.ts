@@ -5,11 +5,11 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.scss']
+  styleUrls: ['home.component.scss'],
 })
 
 export class HomeComponent implements OnInit {
-  isBarHidden = true;
+  isArrowHidden = true;
   fragment: string;
 
   constructor(
@@ -31,8 +31,10 @@ export class HomeComponent implements OnInit {
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     if (number >= 50) {
       this.mainBarService.modifyIsHidden(false);
+      this.isArrowHidden = false;
     } else if (number < 50) {
       this.mainBarService.modifyIsHidden(true);
+      this.isArrowHidden = true;
     }
   }
 
@@ -40,5 +42,9 @@ export class HomeComponent implements OnInit {
     setTimeout(() =>
       document.querySelector('#' + this.fragment).scrollIntoView({block: 'start', behavior: 'smooth'})
     );
+  }
+
+  scrollTop() {
+    document.getElementById('home-slider').scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 }

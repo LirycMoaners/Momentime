@@ -1,4 +1,4 @@
-<div class="home-slider">
+<div id="home-slider" class="home-slider">
   <div class="menu">
     <img class="logo" src="../../assets/image/logo-negatif.png"/>
     <div class="menu-item">
@@ -34,10 +34,28 @@
   </div>
 </div>
 <div id="portfolio" class="portfolio">
-
+  <span>Gallerie</span>
+  <div class="category">
+    <div>Noir & Blanc</div>
+  </div>
+  <div class="category">
+    <div>Portrait</div>
+  </div>
+  <div class="category">
+    <div>Paysage</div>
+  </div>
+  <div class="category">
+    <div>Evènement</div>
+  </div>
+  <div class="category">
+    <div>Famille</div>
+  </div>
+  <div class="category">
+    <div>Couleur</div>
+  </div>
 </div>
 <div id="pricing" class="pricing">
-  <div class="left">
+  <div class="content-pricing">
     <div class="title-pricing">Photographie</div>
     <p>
       Envie d'un photographe pour un évènement, un portrait ou des photos en famille ?<br/>
@@ -45,7 +63,7 @@
     </p>
     <button>Voir les prix</button>
   </div>
-  <div class="right">
+  <div class="content-pricing">
     <div class="title-pricing">Cours</div>
     <p>
       Vous souhaitez compléter vos connaissance en photographie ou commencer tout simplement ?<br/>
@@ -69,6 +87,7 @@
 </div>
 <div id="contact" class="contact">
   <div class="block">
+    <span>Contact</span>
 
   </div>
 </div>
@@ -76,3 +95,5 @@
 <div class="follow">
 
 </div>
+
+<div class="arrow" [class.show]="!isArrowHidden" (click)="scrollTop()"></div>

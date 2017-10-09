@@ -1,7 +1,9 @@
 @import '../shared/crossfade.scss';
+@import '../shared/images.scss';
+@import '../shared/theme.scss';
 
 .block {
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -9,8 +11,8 @@ p {
   font-family: "KG Somebody That I Used To Know";
   font-weight: bold;
   font-size: 1.5em;
-  letter-spacing: 1px;
-  margin-top: 0;
+  letter-spacing: 3px;
+  margin: 0;
 }
 
 .home-slider{
@@ -65,7 +67,7 @@ p {
 }
 
 .presentation {
-  height: 300px;
+  overflow: auto;
   background-color: rgba(0,0,0,0.8);
   color: white;
   padding: 50px;
@@ -76,28 +78,71 @@ p {
 }
 
 .portfolio {
-  height: 800px;
+  overflow: auto;
+  font-size: 0;
+
+  span {
+    display: block;
+    font-size: 3rem;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .category {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 300px;
+    width: 100%;
+    border: 1px solid black;
+    box-sizing: border-box;
+
+    @media screen and (min-width: $screen-md-min) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: $screen-lg-min) {
+      width: 33.33%;
+    }
+
+    div {
+      position: absolute;
+      line-height: 80px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.3);
+      text-align: center;
+      font-size: 2rem;
+      top: 100%;
+      transition: all 1s;
+    }
+
+    &:hover {
+      div {
+        top: calc(50% - 40px);
+      }
+    }
+  }
 }
 
 .pricing {
-  height: 375px;
+  overflow: auto;
   background-color: rgb(10, 10, 10);
   color: white;
+  font-size: 0;
 
-  .left {
-    float: left;
-    width: 50%;
+  .content-pricing {
+    display: inline-block;
+    width: 100%;
     text-align: center;
     border: 1px solid white;
     box-sizing: border-box;
-  }
+    height: 402px;
+    vertical-align: top;
+    font-size: 1rem;
 
-  .right {
-    float: right;
-    width: 50%;
-    text-align: center;
-    border: 1px solid white;
-    box-sizing: border-box;
+    @media screen and (min-width: $screen-md-min) {
+      width: 50%;
+    }
   }
 
   .title-pricing {
@@ -117,20 +162,20 @@ p {
     color: white;
     font-size: 2em;
     text-align: center;
-    margin-bottom: 54px;
+    margin: 30px 0 40px;
   }
 }
 
 .about {
-  height: 675px;
-  background: #00ff00 url("../../assets/image/_DSC0763.jpg") no-repeat fixed center;
+  overflow: auto;
+  background: url("../../assets/image/_DSC0763.jpg") no-repeat fixed center;
   background-size: cover;
   padding: 50px;
 
   .about-content {
-    width: 400px;
+    width: 450px;
     padding: 30px;
-    background-color: rgba(255, 255, 255, 0.288);
+    background-color: rgba(255, 255, 255, 0.3);
 
     span {
       font-size: 3em;
@@ -144,4 +189,19 @@ p {
 
 .follow {
 
+}
+
+.arrow {
+  position: fixed;
+  background: $arrow-up no-repeat;
+  background-size: 100%;
+  width: 70px;
+  height: 70px;
+  bottom: -90px;
+  right: 20px;
+  transition: all 1s;
+
+  &.show {
+    bottom: 20px;
+  }
 }
