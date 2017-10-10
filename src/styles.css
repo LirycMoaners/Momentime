@@ -15,10 +15,6 @@
   src: url("assets/font/She-Always-Walks-Alone-Demo.ttf");
 }
 
-* {
-  font-family: "She Always Walks Alone Demo";
-}
-
 body {
   overflow: hidden;
   margin: 0;

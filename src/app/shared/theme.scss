@@ -1,3 +1,24 @@
+@import '../shared/font.scss';
+
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
+
+.block {
+  max-width: 1000px;
+  margin: auto;
+}
+
+p {
+  font-family: $content-font;
+  font-weight: bold;
+  font-size: 1.5em;
+  letter-spacing: 3px;
+  margin: 0;
+}
+
+h1 {
+  font-family: $title-font;
+  font-size: 3rem;
+  margin: 0;
+}
