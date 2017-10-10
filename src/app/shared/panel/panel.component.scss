@@ -1,0 +1,30 @@
+@import '../color.scss';
+@import '../font.scss';
+
+:host {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  z-index: 200;
+  width: 0;
+
+  .panel {
+    position: relative;
+    height: 100%;
+    width: 240px;
+    left: -300px;
+    transition: all 1s;
+    background-color: $black-transp;
+    padding: 30px;
+
+    &.show {
+      left: 0;
+    }
+
+    .panel-item {
+      color: $first-color;
+      font-size: 2rem;
+      font-family: $title-font;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { MainBarService } from '../shared/main-bar/main-bar.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -14,7 +14,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private mainBarService: MainBarService
+    private mainBarService: MainBarService,
+    private elRef: ElementRef
   ) { }
 
   ngOnInit() {
@@ -26,15 +27,17 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (number >= 50) {
-      this.mainBarService.modifyIsHidden(false);
-      this.isArrowHidden = false;
-    } else if (number < 50) {
-      this.mainBarService.modifyIsHidden(true);
-      this.isArrowHidden = true;
+  @HostListener('scroll', ['$event'])
+  onScroll(event) {
+    if (event.srcElement === this.elRef.nativeElement) {
+      const number = this.elRef.nativeElement.scrollTop;
+      if (number >= 50) {
+        this.mainBarService.modifyIsHidden(false);
+        this.isArrowHidden = false;
+      } else if (number < 50) {
+        this.mainBarService.modifyIsHidden(true);
+        this.isArrowHidden = true;
+      }
     }
   }
 

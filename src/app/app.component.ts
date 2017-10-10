@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { MainBarService } from './shared/main-bar/main-bar.service';
+import { Component } from '@angular/core';
+
 import { anim } from './shared/transition';
 
 @Component({
@@ -9,16 +8,9 @@ import { anim } from './shared/transition';
   styleUrls: ['./app.component.scss'],
   animations: [anim]
 })
-export class AppComponent implements OnInit {
-  isBarHidden = true;
+export class AppComponent {
 
-  constructor(
-    private mainBarService: MainBarService
-  ) {}
-
-  ngOnInit(): void {
-    this.mainBarService.getIsHidden().subscribe((isBarHidden: boolean) => this.isBarHidden = isBarHidden);
-  }
+  constructor() {}
 
   getRouteAnimation(outlet) {
     return outlet.activatedRouteData.animation;

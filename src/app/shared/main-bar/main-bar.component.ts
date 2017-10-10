@@ -1,3 +1,4 @@
+import { PanelService } from '../panel/panel.service';
 import { Component, OnInit } from '@angular/core';
 import { MainBarService } from './main-bar.service';
 
@@ -9,12 +10,19 @@ import { MainBarService } from './main-bar.service';
 
 export class MainBarComponent implements OnInit {
   isBarHidden = true;
+  isPanelHidden = true;
 
   constructor(
-    private mainBarService: MainBarService
+    private mainBarService: MainBarService,
+    private panelService: PanelService
   ) { }
 
   ngOnInit() {
     this.mainBarService.getIsHidden().subscribe((isBarHidden: boolean) => this.isBarHidden = isBarHidden);
+  }
+
+  onClickBurger() {
+    this.isPanelHidden = !this.isPanelHidden;
+    this.panelService.modifyIsHidden(this.isPanelHidden);
   }
 }

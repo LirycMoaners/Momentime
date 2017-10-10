@@ -1,22 +1,28 @@
-<div class="bar">
-  <div class="logo"></div>
-  <div class="menu-item">
-    <span>Accueil</span>
-  </div>
-  <div class="menu-item">
-    <span>Gallerie</span>
-  </div>
-  <div class="menu-item">
-    <span>Offre</span>
-  </div>
-  <div class="menu-item">
-    <span>Blog</span>
-  </div>
-  <div class="menu-item">
-    <span>Contact</span>
-  </div>
+<div class="bar" [class.show]="!isBarHidden">
+  <div class="large-screen">
+    <div class="logo"></div>
+    <div class="menu-item">
+      <span>Accueil</span>
+    </div>
+    <div class="menu-item">
+      <span>Gallerie</span>
+    </div>
+    <div class="menu-item">
+      <span>Offre</span>
+    </div>
+    <div class="menu-item">
+      <span>Blog</span>
+    </div>
+    <div class="menu-item">
+      <span>Contact</span>
+    </div>
 
-  <a class="social youtube" href="https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"></a>
-  <a class="social instagram" href="https://www.instagram.com/momen_time/"></a>
-  <a class="social facebook" href="https://www.facebook.com/momen.time.imagez.vous/"></a>
+    <a class="social youtube" href="https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"></a>
+    <a class="social instagram" href="https://www.instagram.com/momen_time/"></a>
+    <a class="social facebook" href="https://www.facebook.com/momen.time.imagez.vous/"></a>
+  </div>
+  <div class="small-screen">
+    <button class="menu-button" (click)="onClickBurger()"></button>
+    <div class="logo-center"></div>
+  </div>
 </div>

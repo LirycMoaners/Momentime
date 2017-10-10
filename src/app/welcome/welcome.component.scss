@@ -1,5 +1,6 @@
 @import "../shared/theme.scss";
 @import "../shared/images.scss";
+@import "../shared/color.scss";
 
 :host {
   height: 100%;
@@ -31,17 +32,16 @@
       .button-enter {
         padding: 10px;
         border: none;
-        background-color: rgba(255, 255, 255, 0.4);
-        color: #000;
+        background-color: $white-transp;
+        font-family: $title-font;
         font-size: 3em;
         height: 100px;
-        border: 3px solid black;
+        border: 3px solid $second-color;
         border-radius: 50px;
 
         &:hover {
           background: $flash no-repeat center;
           background-size: 100% 100%;
-          color: #000;
         }
       }
     }

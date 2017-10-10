@@ -1,14 +1,16 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import { WelcomeComponent } from './welcome/welcome.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainBarComponent } from './shared/main-bar/main-bar.component';
 import { MainBarService } from './shared/main-bar/main-bar.service';
+import { PanelComponent } from './shared/panel/panel.component';
+import { PanelService } from './shared/panel/panel.service';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
@@ -16,14 +18,18 @@ import { MainBarService } from './shared/main-bar/main-bar.service';
     PageNotFoundComponent,
     HomeComponent,
     WelcomeComponent,
-    MainBarComponent
+    MainBarComponent,
+    PanelComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [MainBarService],
+  providers: [
+    MainBarService,
+    PanelService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
