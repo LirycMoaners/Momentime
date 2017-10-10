@@ -15,6 +15,15 @@ p {
   margin: 0;
 }
 
+:host {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
 .home-slider{
   height: 800px;
   background-color: #0a0a0a;
@@ -172,7 +181,7 @@ p {
 
 .about {
   overflow: auto;
-  background: url("/assets/image/_dsc0763.jpg") no-repeat fixed center;
+  background: $about no-repeat fixed center;
   background-size: cover;
   padding: 50px;
 
