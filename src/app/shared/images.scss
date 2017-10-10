@@ -1,19 +1,18 @@
-$logo : url("/assets/image/logo-border.png");
-$logo-negatif : url("/assets/image/logo-negatif.png");
-$logo-mini : url("/assets/image/appli06.png");
+$logo : url("/assets/image/logo/logo-border.png");
+$logo-negatif : url("/assets/image/logo/logo-negatif.png");
+$logo-mini : url("/assets/image/logo/appli06.png");
 
-$facebook : url("/assets/image/facebook-black-white.svg");
-$instagram : url("/assets/image/instagram-black-white.svg");
-$youtube : url("/assets/image/youtube-black-white.svg");
+$facebook : url("/assets/image/icon/facebook-black-white.svg");
+$instagram : url("/assets/image/icon/instagram-black-white.svg");
+$youtube : url("/assets/image/icon/youtube-black-white.svg");
+$flash : url("/assets/image/icon/cameraflash.png");
+$arrow-up : url("/assets/image/icon/arrow-up.png");
 
-$background-welcome : url("/assets/image/_dsc0263.jpg");
-$flash : url("/assets/image/cameraflash.png");
+$background-welcome : url("/assets/image/picture/_dsc0263.jpg");
+$slideshow1 : url("/assets/image/picture/_dsc0466.jpg");
+$slideshow2 : url("/assets/image/picture/_dsc8568.jpg");
+$slideshow3 : url("/assets/image/picture/_dsc0570.jpg");
 
-$slideshow1 : url("/assets/image/_dsc0466.jpg");
-$slideshow2 : url("/assets/image/_dsc8568.jpg");
-$slideshow3 : url("/assets/image/_dsc0570.jpg");
-
-$arrow-up : url("/assets/image/arrow-up.png");
 
 @mixin image($img, $width, $height) {
   background: $img no-repeat center;
