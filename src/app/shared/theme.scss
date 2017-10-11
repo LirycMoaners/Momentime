@@ -1,12 +1,14 @@
 @import '../shared/font.scss';
+@import "../shared/color.scss";
 
 $screen-sm-min: 768px;
 $screen-md-min: 992px;
 $screen-lg-min: 1200px;
 
 .block {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: auto;
+  overflow: auto;
 }
 
 p {
@@ -21,4 +23,14 @@ h1 {
   font-family: $title-font;
   font-size: 3rem;
   margin: 0;
+}
+
+input, textarea {
+  background-color: transparent;
+  border: 2px solid $first-color;
+  font-family: $content-font;
+  font-size: 1.5em;
+  padding: 0 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
 }

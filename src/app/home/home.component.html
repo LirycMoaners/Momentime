@@ -23,6 +23,7 @@
     <figure></figure>
   </div>
 </div>
+
 <div id="presentation" class="presentation">
   <div class="block">
     <h1>Presentation</h1>
@@ -33,6 +34,7 @@
     </p>
   </div>
 </div>
+
 <div id="portfolio" class="portfolio">
   <h1>Gallerie</h1>
   <div class="category">
@@ -54,6 +56,7 @@
     <div>Couleur</div>
   </div>
 </div>
+
 <div id="pricing" class="pricing">
   <div class="content-pricing">
     <h1>Photographie</h1>
@@ -61,7 +64,7 @@
       Envie d'un photographe pour un évènement, un portrait ou des photos en famille ?<br/>
       Renseignez-vous ici avant de me contacter.
     </p>
-    <button>Voir les prix</button>
+    <button>En savoir plus</button>
   </div>
   <div class="content-pricing">
     <h1>Cours</h1>
@@ -69,7 +72,7 @@
       Vous souhaitez compléter vos connaissance en photographie ou commencer tout simplement ?<br/>
       Je peux vous donner des cours, contactez-moi !
     </p>
-    <button>Voir les prix</button>
+    <button>En savoir plus</button>
   </div>
 </div>
 <div id="about" class="about">
@@ -84,15 +87,28 @@
       </p>
       <p class="signature">
         Edouard Delaunay <br/>
-        Photographe et Auto-entrepreneur
+        Photographe
       </p>
     </div>
   </div>
 </div>
+
 <div id="contact" class="contact">
   <div class="block">
     <h1>Contact</h1>
-
+    <p>contact@contact.com</p>
+    <p>http://www.momentime.com</p>
+    <div class="contact-form">
+      <div class="left">
+        <input name="name" type="text" placeholder="Votre Nom *" required>
+        <input name="email" type="email" placeholder="Votre Email *" required>
+        <input name="phone" type="tel" placeholder="Votre Numéro de Téléphone *" required>
+      </div>
+      <div class="right">
+        <textarea name="message" placeholder="Votre Message ... *" required></textarea>
+      </div>
+    </div>
+    <button class="send">Envoyer</button>
   </div>
 </div>
 
@@ -101,7 +117,8 @@
 </div>
 
 <div class="footer">
-
+  <p>Momentime. Tout droits réservés</p>
+  <p>Développé par Cyril Lefebvre supporté par Angular</p>
 </div>
 
 <div class="arrow" [class.show]="!isArrowHidden" (click)="scrollTop()"></div>
