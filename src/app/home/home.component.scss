@@ -11,6 +11,22 @@
   left: 0;
 }
 
+button {
+  color: $first-color;
+  background-color: $second-color;
+  border: 2px solid $first-color;
+  height: 80px;
+  font-family: $title-font;
+  font-size: 2em;
+  padding: 15px;
+
+  &:hover {
+    background-color: $first-color;
+    border-color: $second-color;
+    color: $second-color;
+  }
+}
+
 .home-slider{
   height: 500px;
   background-color: $second-color;
@@ -128,8 +144,8 @@
       width: 100%;
       background: $white-transp;
       text-align: center;
-      font-family: $title-font;
-      font-size: 2rem;
+      font-family: $style-font;
+      font-size: 3rem;
       top: 100%;
       transition: all 1s;
     }
@@ -160,19 +176,7 @@
   }
 
   p {
-    margin-top: 0;
-  }
-
-  button {
-    padding: 15px;
-    height: 80px;
-    border: 1px solid $first-color;
-    background-color: transparent;
-    color: $first-color;
-    font-family: $title-font;
-    font-size: 2em;
-    text-align: center;
-    margin-top: 30px;
+    margin-bottom: 30px;
   }
 
   @media screen and (min-width: $screen-md-min) {
@@ -257,21 +261,6 @@
           height: calc(100% - 20px);
         }
       }
-    }
-  }
-
-  button {
-    background-color: $first-color;
-    line-height: 50px;
-    width: 150px;
-    border: 2px solid transparent;
-    font-family: $title-font;
-    font-size: 1.5em;
-
-    &:hover {
-      color: $first-color;
-      background-color: transparent;
-      border-color: $first-color;
     }
   }
 }
