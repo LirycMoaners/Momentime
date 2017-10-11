@@ -137,6 +137,22 @@ button {
       width: 33.33%;
     }
 
+    &.cat1 {
+      @include image($category1, cover, null);
+    }
+    &.cat2 {
+      @include image($category2, cover, null);
+    }
+    &.cat3 {
+      @include image($category3, cover, null);
+    }
+    &.cat4 {
+      @include image($category4, cover, null);
+    }
+    &.cat5 {
+      @include image($category5, cover, null);
+    }
+
     div {
       position: absolute;
       line-height: 80px;
@@ -162,6 +178,7 @@ button {
   color: $first-color;
   font-size: 0;
   background: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
 
   .content-pricing {
     display: inline-block;
@@ -210,6 +227,7 @@ button {
 .contact {
   overflow: auto;
   background-color: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
   color: $first-color;
   padding: 50px;
   text-align: center;
