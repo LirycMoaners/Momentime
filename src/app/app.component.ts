@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
 import { anim } from './shared/transition';
@@ -10,7 +11,9 @@ import { anim } from './shared/transition';
 })
 export class AppComponent {
 
-  constructor() {}
+  constructor(
+    public router: Router
+  ) {}
 
   getRouteAnimation(outlet) {
     return outlet.activatedRouteData.animation;

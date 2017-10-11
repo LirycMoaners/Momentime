@@ -1,6 +1,6 @@
-<main-bar></main-bar>
+<main-bar *ngIf="router.url !== '/'"></main-bar>
 <panel></panel>
-<div class="content">
+<div class="content" [class.show-bar]="router.url !== '/'">
   <div [@routerAnimation]="getRouteAnimation(route)">
     <router-outlet #route="outlet"></router-outlet>
   </div>
