@@ -82,7 +82,6 @@ button {
       height: 700px;
 
       .logo{
-        height: 200px;
         margin: 0 0 30px;
       }
 
@@ -127,7 +126,7 @@ button {
     display: inline-block;
     height: 400px;
     width: 100%;
-    border: 1px solid black;
+    border: 1px solid $second-color;
     box-sizing: border-box;
 
     @media screen and (min-width: $screen-md-min) {
