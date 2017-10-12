@@ -95,6 +95,11 @@ button {
           color: $first-color;
           text-decoration: none;
           font-size: 1.8em;
+          transition: all 0.5s;
+
+          &:hover {
+            letter-spacing: 5px;
+          }
         }
       }
     }
@@ -128,12 +133,34 @@ button {
     border: 1px solid $second-color;
     box-sizing: border-box;
 
+    div {
+      position: absolute;
+      line-height: 80px;
+      width: 100%;
+      background: $white-transp;
+      text-align: center;
+      font-family: $style-font;
+      font-size: 3rem;
+      top: calc(50% - 40px);
+      transition: all 1s;
+    }
+
     @media screen and (min-width: $screen-md-min) {
       width: 50%;
     }
 
     @media screen and (min-width: $screen-lg-min) {
       width: 33.33%;
+
+      div {
+        top: 100%;
+      }
+
+      &:hover {
+        div {
+          top: calc(50% - 40px);
+        }
+      }
     }
 
     &.cat1 {
@@ -150,24 +177,6 @@ button {
     }
     &.cat5 {
       @include image($category5, cover, null);
-    }
-
-    div {
-      position: absolute;
-      line-height: 80px;
-      width: 100%;
-      background: $white-transp;
-      text-align: center;
-      font-family: $style-font;
-      font-size: 3rem;
-      top: 100%;
-      transition: all 1s;
-    }
-
-    &:hover {
-      div {
-        top: calc(50% - 40px);
-      }
     }
   }
 }

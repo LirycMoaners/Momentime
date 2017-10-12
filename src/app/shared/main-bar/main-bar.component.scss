@@ -4,6 +4,7 @@
   position: fixed;
   z-index: 0;
   width: 100%;
+  height: 0;
 
   .bar {
     position: relative;
@@ -79,13 +80,18 @@
         text-align: center;
         vertical-align: top;
         border-left: 1px solid $first-color;
-        margin-left: -10px;
+        margin-left: -5px;
 
         span {
           font-family: $main-bar-font;
           font-weight: bold;
           line-height: 70px;
           font-size: 1.5em;
+        }
+
+        &:hover {
+          color: $second-color;
+          background-color: $first-color;
         }
       }
 

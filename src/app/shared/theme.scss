@@ -35,6 +35,12 @@ input, textarea {
   box-sizing: border-box;
 }
 
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
 .social-list {
   height: 70px;
 
@@ -44,6 +50,7 @@ input, textarea {
     height: 100%;
     vertical-align: top;
     margin: 0 5px;
+    transition: all 1s;
 
     &.youtube {
       @include image($youtube, 100%, auto);
@@ -55,6 +62,11 @@ input, textarea {
 
     &.facebook {
       @include image($facebook, 100%, auto);
+    }
+
+    &:hover {
+      transform: rotateY(180deg);
+      filter: invert(100%);
     }
   }
 }
