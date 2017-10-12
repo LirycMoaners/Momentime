@@ -1,6 +1,4 @@
 @import '../theme.scss';
-@import '../images.scss';
-@import '../color.scss';
 
 :host {
   position: fixed;
@@ -91,24 +89,8 @@
         }
       }
 
-      .social{
+      .social-list{
         float: right;
-        height: 100%;
-        width: 50px;
-        vertical-align: top;
-        margin: 0 5px;
-
-        &.youtube {
-          @include image($youtube, 100%, auto);
-        }
-
-        &.instagram {
-          @include image($instagram, 100%, auto);
-        }
-
-        &.facebook {
-          @include image($facebook, 100%, auto);
-        }
       }
     }
   }

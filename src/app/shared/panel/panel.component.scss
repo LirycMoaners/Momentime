@@ -1,5 +1,4 @@
-@import '../color.scss';
-@import '../font.scss';
+@import '../theme.scss';
 
 :host {
   position: fixed;
@@ -10,7 +9,7 @@
 
   .panel {
     position: relative;
-    height: 100%;
+    height: calc(100% - 60px);
     width: 240px;
     left: -300px;
     transition: all 1s;
@@ -25,6 +24,11 @@
       color: $first-color;
       font-size: 2rem;
       font-family: $title-font;
+    }
+
+    .social-list {
+      position: absolute;
+      bottom: 30px;
     }
   }
 }

@@ -1,5 +1,4 @@
 @import '../shared/crossfade.scss';
-@import '../shared/images.scss';
 @import '../shared/theme.scss';
 
 :host {
@@ -283,8 +282,14 @@ button {
 }
 
 .follow {
-  height: 300px;
+  text-align: center;
+  overflow: auto;
   background-color: $first-color;
+  padding: 50px;
+
+  .social-list {
+    filter: invert(100%);
+  }
 }
 
 .footer {
