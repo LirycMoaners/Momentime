@@ -1,23 +1,16 @@
 <div class="panel" [class.show]="!isPanelHidden">
-  <div class="panel-item">
-    <span>Accueil</span>
-  </div>
-  <div class="panel-item">
-    <span>Gallerie</span>
-  </div>
-  <div class="panel-item">
-    <span>Offre</span>
-  </div>
-  <div class="panel-item">
-    <span>Blog</span>
-  </div>
-  <div class="panel-item">
-    <span>Contact</span>
-  </div>
+  <a *ngFor="let menuItem of menuItemService.menuItemList"
+    [routerLink]="[menuItem.route]"
+    [fragment]="menuItem.fragment"
+    (click)="menuItem.fragment ? onAnchorClick() : null"
+    class="panel-item">
+    <span>{{menuItem.name}}</span>
+  </a>
 
   <div class="social-list">
-    <a class="social youtube" href="https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"></a>
-    <a class="social instagram" href="https://www.instagram.com/momen_time/"></a>
-    <a class="social facebook" href="https://www.facebook.com/momen.time.imagez.vous/"></a>
+    <a *ngFor="let social of socialService.socialList"
+      [class]="'social ' + social.name"
+      [href]="social.url">
+    </a>
   </div>
 </div>

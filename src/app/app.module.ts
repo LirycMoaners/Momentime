@@ -1,3 +1,5 @@
+import { MenuItemService } from './shared/menu-item/menu-item.service';
+import { SocialService } from './shared/social/social.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,7 +30,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
   ],
   providers: [
     MainBarService,
-    PanelService
+    PanelService,
+    SocialService,
+    MenuItemService
   ],
   bootstrap: [AppComponent]
 })
