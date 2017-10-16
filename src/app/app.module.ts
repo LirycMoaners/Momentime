@@ -1,3 +1,4 @@
+import { HomeService } from './home/home.service';
 import { MenuItemService } from './shared/menu-item/menu-item.service';
 import { SocialService } from './shared/social/social.service';
 import { NgModule } from '@angular/core';
@@ -32,7 +33,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MainBarService,
     PanelService,
     SocialService,
-    MenuItemService
+    MenuItemService,
+    HomeService
   ],
   bootstrap: [AppComponent]
 })

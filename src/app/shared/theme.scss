@@ -14,15 +14,25 @@ $screen-lg-min: 1200px;
 p {
   font-family: $content-font;
   font-weight: bold;
-  font-size: 1.5em;
+  font-size: 1em;
   letter-spacing: 3px;
   margin: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    font-size: 1.5em;
+  }
 }
 
 h1 {
   font-family: $title-font;
-  font-size: 3rem;
+  font-size: 2rem;
+  line-height: 66px;
   margin: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    font-size: 3rem;
+    line-height: 90px;
+  }
 }
 
 input, textarea {

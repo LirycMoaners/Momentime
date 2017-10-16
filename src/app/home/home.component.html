@@ -1,20 +1,8 @@
 <div id="home-slider" class="home-slider">
   <div class="menu">
     <div class="logo"></div>
-    <div class="menu-item">
-        <a [routerLink]="['/accueil']" fragment="presentation" (click)="onAnchorClick()">Presentation</a>
-    </div>
-    <div class="menu-item">
-      <a [routerLink]="['/accueil']" fragment="portfolio" (click)="onAnchorClick()">Gallerie</a>
-    </div>
-    <div class="menu-item">
-      <a [routerLink]="['/accueil']" fragment="pricing" (click)="onAnchorClick()">Offre</a>
-    </div>
-    <div class="menu-item">
-      <a [routerLink]="['/accueil']" fragment="about" (click)="onAnchorClick()">A Propos</a>
-    </div>
-    <div class="menu-item">
-      <a [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick()">Contact</a>
+    <div *ngFor="let anchor of homeService.anchorList" class="menu-item">
+        <a [routerLink]="['/accueil']" [fragment]="anchor.fragment" (click)="onAnchorClick()">{{anchor.name}}</a>
     </div>
   </div>
   <div class="crossfade">

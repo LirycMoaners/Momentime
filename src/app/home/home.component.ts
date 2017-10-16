@@ -1,3 +1,4 @@
+import { HomeService } from './home.service';
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { MainBarService } from '../shared/main-bar/main-bar.service';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +16,8 @@ export class HomeComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private mainBarService: MainBarService,
-    private elRef: ElementRef
+    private elRef: ElementRef,
+    public homeService: HomeService
   ) { }
 
   ngOnInit() {
@@ -25,19 +27,22 @@ export class HomeComponent implements OnInit {
         this.fragment = fragment;
       }
     );
+    this.homeService.getEvent().subscribe(
+      () => {
+        this.onAnchorClick();
+      }
+    )
   }
 
   @HostListener('scroll', ['$event'])
   onScroll(event) {
-    if (event.srcElement === this.elRef.nativeElement) {
-      const number = this.elRef.nativeElement.scrollTop;
-      if (number >= 50) {
-        this.mainBarService.modifyIsHidden(false);
-        this.isArrowHidden = false;
-      } else if (number < 50) {
-        this.mainBarService.modifyIsHidden(true);
-        this.isArrowHidden = true;
-      }
+    const number = this.elRef.nativeElement.scrollTop;
+    if (number >= 50) {
+      this.mainBarService.modifyIsHidden(false);
+      this.isArrowHidden = false;
+    } else if (number < 50) {
+      this.mainBarService.modifyIsHidden(true);
+      this.isArrowHidden = true;
     }
   }
 

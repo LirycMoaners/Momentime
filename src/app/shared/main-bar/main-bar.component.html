@@ -11,7 +11,6 @@
 
     <div class="social-list">
       <a *ngFor="let social of socialService.socialList"
-        class="social"
         [class]="'social ' + social.name"
         [href]="social.url">
       </a>

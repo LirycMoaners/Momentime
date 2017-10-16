@@ -1,12 +1,16 @@
+import { HomeService } from '../../home/home.service';
 import { SocialService } from '../social/social.service';
 import { MenuItemService } from '../menu-item/menu-item.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { PanelService } from './panel.service';
 
 @Component({
   selector: 'panel',
   templateUrl: 'panel.component.html',
-  styleUrls: ['panel.component.scss']
+  styleUrls: ['panel.component.scss'],
+  host: {
+    '(document:click)': 'onClick($event)',
+  }
 })
 
 export class PanelComponent implements OnInit {
@@ -16,7 +20,9 @@ export class PanelComponent implements OnInit {
   constructor(
     private panelService: PanelService,
     public menuItemService: MenuItemService,
-    public socialService: SocialService
+    public socialService: SocialService,
+    private eref: ElementRef,
+    private homeService: HomeService
   ) { }
 
   ngOnInit() {
@@ -24,8 +30,12 @@ export class PanelComponent implements OnInit {
   }
 
   onAnchorClick() {
-    setTimeout(() =>
-      document.querySelector('#' + this.fragment).scrollIntoView({block: 'start', behavior: 'smooth'})
-    );
+    this.homeService.newEvent(null);
+  }
+
+  onClick(event) {
+    if(!this.eref.nativeElement.contains(event.target) && event.target.className !== "menu-button") {
+      this.panelService.modifyIsHidden(true);
+    }
   }
 }

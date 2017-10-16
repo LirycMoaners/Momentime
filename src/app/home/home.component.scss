@@ -63,7 +63,7 @@ button {
       width: 120%;
       height: 300px;
       left: -10%;
-      margin: 50px 0;
+      margin: 0;
     }
 
     .menu-item {
@@ -110,19 +110,27 @@ button {
   overflow: auto;
   background-color: $grey;
   color: $first-color;
-  padding: 50px;
-  padding-top: 150px;
-  background: radial-gradient(100% 50% at 50% 0px, transparent 50%, $grey 70%);
+  padding: 150px 20px 50px;
+  background: radial-gradient(100% 30% at 50% 0px, transparent 50%, $grey 70%);
   position: relative;
   z-index: 100;
-  margin-top: -150px;
+  margin-top: -170px;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 150px 50px 50px;
+    background: radial-gradient(100% 40% at 50% 0px, transparent 50%, $grey 70%);
+  }
 }
 
 .portfolio {
   overflow: auto;
   font-size: 0;
   background-color: $first-color;
-  padding-top: 30px;
+  padding-top: 10px;
+
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 30px;
+  }
 
   h1 {
     display: block;
@@ -219,9 +227,24 @@ button {
 
 .about {
   overflow: auto;
-  background: $about no-repeat fixed center;
-  background-size: cover;
-  padding: 50px;
+  padding: 50px 20px;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 50px;
+  }
+
+  &:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: $about no-repeat center center;
+    background-size: cover;
+  }
 
   .about-content {
     max-width: 450px;
@@ -242,16 +265,24 @@ button {
   background-color: $second-color;
   background: radial-gradient(circle, $black-transp, $second-color);
   color: $first-color;
-  padding: 50px;
   text-align: center;
+  padding: 50px 20px;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 50px;
+  }
 
   h1 {
     margin: 0 auto 10px;
     width: 280px;
     border: 2px solid $first-color;
-    height: 70px;
+    height: 50px;
     padding: 10px;
     transform: skew(10deg);
+
+    @media screen and (min-width: $screen-sm-min) {
+      height: 70px;
+    }
   }
 
   .contact-form {
@@ -299,7 +330,7 @@ button {
   text-align: center;
   overflow: auto;
   background-color: $first-color;
-  padding: 50px;
+  padding: 50px 0px;
 
   .social-list {
     filter: invert(100%);
