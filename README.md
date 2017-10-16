@@ -3,7 +3,7 @@
 This project is a website for the company Momen'time of Edouard Delaunay.
 This website is about photography and is a presentation of the activity of this company.
 
-#Quick Start
+# Quick Start
 
 To run this website :
   - Download or clone the repository
@@ -11,7 +11,7 @@ To run this website :
   - Run `npm start` to start the server
   - Open your browser on `http://localhost:4200` to show the website
 
-#Install on Server
+# Install on Server
 
 Just run `npm build -prod` in your project folder to build the website and copy/paste the content of the dist folder in the directory of your website server.
 
