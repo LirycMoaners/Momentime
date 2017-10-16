@@ -2,17 +2,26 @@
 
 @font-face {
   font-family: "Raisin des Sables";
-  src: url("assets/font/Raisin-des-Sables.ttf");
+  src: url("assets/font/Raisin-des-Sables.eot");
+  src: url("assets/font/Raisin-des-Sables.woff2") format('woff2'),
+    url("assets/font/Raisin-des-Sables.woff") format('woff'),
+    url("assets/font/Raisin-des-Sables.ttf") format('truetype');
 }
 
 @font-face {
   font-family: "KG Somebody That I Used To Know";
-  src: url("assets/font/KGSomebodyThatIUsedToKnow.ttf");
+  src: url("assets/font/KGSomebodyThatIUsedToKnow.eot");
+  src: url("assets/font/KGSomebodyThatIUsedToKnow.woff2") format('woff2'),
+    url("assets/font/KGSomebodyThatIUsedToKnow.woff") format('woff'),
+    url("assets/font/KGSomebodyThatIUsedToKnow.ttf") format('truetype');
 }
 
 @font-face {
   font-family: "She Always Walks Alone Demo";
-  src: url("assets/font/She-Always-Walks-Alone-Demo.ttf");
+  src: url("assets/font/She-Always-Walks-Alone-Demo.eot");
+  src: url("assets/font/She-Always-Walks-Alone-Demo.woff2") format('woff2'),
+    url("assets/font/She-Always-Walks-Alone-Demo.woff") format('woff'),
+    url("assets/font/She-Always-Walks-Alone-Demo.ttf") format('truetype');
 }
 
 body {
