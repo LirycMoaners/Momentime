@@ -1,0 +1,23 @@
+@import '../shared/theme.scss';
+
+:host {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  flex-direction: row;
+}
+
+.gallery-menu {
+  flex: 0 0 240px;
+  background-color: $second-color;
+}
+
+.gallery-content {
+  flex: 1;
+  overflow: auto;
+
+  .block {
+    background-color: $black-transp;
+  }
+}

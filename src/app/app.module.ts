@@ -14,12 +14,16 @@ import { MainBarService } from './shared/main-bar/main-bar.service';
 import { PanelComponent } from './shared/panel/panel.component';
 import { PanelService } from './shared/panel/panel.service';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { CategoryService } from './shared/category/category.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     PageNotFoundComponent,
     HomeComponent,
+    GalleryComponent,
     WelcomeComponent,
     MainBarComponent,
     PanelComponent
@@ -28,13 +32,15 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    HttpModule
   ],
   providers: [
     MainBarService,
     PanelService,
     SocialService,
     MenuItemService,
-    HomeService
+    HomeService,
+    CategoryService,
   ],
   bootstrap: [AppComponent]
 })

@@ -108,17 +108,17 @@ button {
 
 .presentation {
   overflow: auto;
-  background-color: $grey;
+  background-color: $second-color;
   color: $first-color;
   padding: 150px 20px 50px;
-  background: radial-gradient(100% 30% at 50% 0px, transparent 50%, $grey 70%);
+  background: radial-gradient(100% 30% at 50% 0px, transparent 50%, $second-color 70%);
   position: relative;
   z-index: 100;
   margin-top: -170px;
 
   @media screen and (min-width: $screen-sm-min) {
     padding: 150px 50px 50px;
-    background: radial-gradient(100% 40% at 50% 0px, transparent 50%, $grey 70%);
+    background: radial-gradient(100% 40% at 50% 0px, transparent 50%, $second-color 70%);
   }
 }
 

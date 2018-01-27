@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 export class MenuItemService {
   menuItemList: MenuItem[] = [
     {name: 'Accueil', route: '/accueil'},
-    {name: 'Gallerie', route: ''},
+    {name: 'Gallerie', route: '/gallery'},
     {name: 'Offre', route: ''},
     {name: 'Contact', route: '/accueil', fragment: 'contact'},
   ];

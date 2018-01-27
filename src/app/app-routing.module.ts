@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HomeComponent } from './home/home.component';
+import { GalleryComponent } from './gallery/gallery.component';
 
 const appRoutes: Routes = [
   {
@@ -13,6 +14,11 @@ const appRoutes: Routes = [
   {
     path: 'accueil',
     component: HomeComponent,
+    data: { animation: 'home' }
+  },
+  {
+    path: 'gallery',
+    component: GalleryComponent,
     data: { animation: 'home' }
   },
   { path: '**', component: PageNotFoundComponent }

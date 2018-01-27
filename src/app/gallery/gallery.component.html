@@ -1,0 +1,14 @@
+<div class="gallery-menu">
+
+</div>
+
+<div class="gallery-content">
+  <div class="block">
+    <div *ngFor="let category of categories">
+      {{category.name}}
+      <p *ngFor="let photo of category.photos">
+        {{photo}}
+      </p>
+    </div>
+  </div>
+</div>
