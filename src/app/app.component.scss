@@ -13,7 +13,9 @@
 
   @media screen and (min-width: $screen-md-min){
     &.show-bar {
-      top: 0;
+      &:not(.always-open) {
+        top: 0;
+      }
     }
   }
 }

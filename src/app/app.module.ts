@@ -4,6 +4,7 @@ import { SocialService } from './shared/social/social.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +18,9 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CategoryService } from './shared/category/category.service';
 import { HttpModule } from '@angular/http';
+import { AppConfigService } from './shared/app-config/app-config.service';
+import { HttpService } from './shared/http/http.service';
+import { PictureService } from './shared/picture/picture.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,8 @@ import { HttpModule } from '@angular/http';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    HttpModule
+    HttpModule,
+    FormsModule
   ],
   providers: [
     MainBarService,
@@ -40,7 +45,10 @@ import { HttpModule } from '@angular/http';
     SocialService,
     MenuItemService,
     HomeService,
+    AppConfigService,
+    HttpService,
     CategoryService,
+    PictureService
   ],
   bootstrap: [AppComponent]
 })

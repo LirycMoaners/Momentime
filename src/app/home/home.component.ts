@@ -1,7 +1,9 @@
 import { HomeService } from './home.service';
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { MainBarService } from '../shared/main-bar/main-bar.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Category } from '../shared/category/category.model';
+import { CategoryService } from '../shared/category/category.service';
 
 @Component({
   selector: 'home',
@@ -10,14 +12,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 
 export class HomeComponent implements OnInit {
+  public categories: Category[] = [];
   isArrowHidden = true;
   fragment: string;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private mainBarService: MainBarService,
     private elRef: ElementRef,
-    public homeService: HomeService
+    private categoryService: CategoryService,
+    public homeService: HomeService,
   ) { }
 
   ngOnInit() {
@@ -31,7 +36,11 @@ export class HomeComponent implements OnInit {
       () => {
         this.onAnchorClick();
       }
-    )
+    );
+
+    this.categoryService.getCategories().subscribe((categories: Category[]) => {
+      this.categories = categories;
+    });
   }
 
   @HostListener('scroll', ['$event'])
@@ -54,5 +63,9 @@ export class HomeComponent implements OnInit {
 
   scrollTop() {
     document.getElementById('home-slider').scrollIntoView({block: 'start', behavior: 'smooth'});
+  }
+
+  navigateToGallery(category: Category) {
+    this.router.navigate(['/gallery'], {queryParams: {'category': category.name}});
   }
 }

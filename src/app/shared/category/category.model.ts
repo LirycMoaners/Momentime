@@ -1,6 +1,6 @@
+import { SafeUrl } from '@angular/platform-browser';
+
 export class Category {
-  constructor(
-    public name: string,
-    public photos: string[]
-  ) {}
+  name: string;
+  firstPic: SafeUrl;
 }

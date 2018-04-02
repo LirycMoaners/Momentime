@@ -108,18 +108,11 @@ button {
 
 .presentation {
   overflow: auto;
-  background-color: $second-color;
+  background: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
   color: $first-color;
-  padding: 150px 20px 50px;
-  background: radial-gradient(100% 30% at 50% 0px, transparent 50%, $second-color 70%);
+  padding: 50px;
   position: relative;
-  z-index: 100;
-  margin-top: -170px;
-
-  @media screen and (min-width: $screen-sm-min) {
-    padding: 150px 50px 50px;
-    background: radial-gradient(100% 40% at 50% 0px, transparent 50%, $second-color 70%);
-  }
 }
 
 .portfolio {
@@ -145,6 +138,10 @@ button {
     width: 100%;
     border: 1px solid $second-color;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translate3d(0, 0, 1px);
 
     div {
       position: absolute;
@@ -163,7 +160,7 @@ button {
     }
 
     @media screen and (min-width: $screen-lg-min) {
-      width: 33.33%;
+      width: calc(100% / 3);
 
       div {
         top: 100%;
@@ -174,22 +171,6 @@ button {
           top: calc(50% - 40px);
         }
       }
-    }
-
-    &.cat1 {
-      @include image($category1, cover, null);
-    }
-    &.cat2 {
-      @include image($category2, cover, null);
-    }
-    &.cat3 {
-      @include image($category3, cover, null);
-    }
-    &.cat4 {
-      @include image($category4, cover, null);
-    }
-    &.cat5 {
-      @include image($category5, cover, null);
     }
   }
 }

@@ -5,12 +5,76 @@
   height: 100%;
   width: 100%;
   position: absolute;
-  flex-direction: row;
+  flex-direction: column;
+
+  @media screen and (min-width: $screen-md-min) {
+    flex-direction: row;
+  }
 }
 
 .gallery-menu {
-  flex: 0 0 240px;
+  flex: 0 0 100px;
   background-color: $second-color;
+  padding: 30px;
+  color: $first-color;
+
+  @media screen and (min-width: $screen-md-min) {
+    flex: 0 0 240px;
+    border-right: 1px solid $first-color;
+  }
+
+  .title {
+    font-family: $title-font;
+    font-size: 30px;
+    text-align: center;
+  }
+
+  .category {
+    font-family: $content-font;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 0;
+    display: none;
+
+    @media screen and (min-width: $screen-md-min) {
+      display: block;
+    }
+
+    &::first-letter{
+      text-transform: uppercase;
+    }
+
+    &.selected {
+      background-color: $first-color;
+      color: $second-color;
+      border-radius: 20px;
+      padding: 5px 10px;
+    }
+  }
+
+  select {
+    margin: auto;
+    display: block;
+    border: 1px solid $second-color;
+    border-radius: 20px;
+    height: 30px;
+    font-family: $content-font;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 5px;
+
+    @media screen and (min-width: $screen-md-min) {
+      display: none;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+    option {
+      font-weight: bold;
+    }
+  }
 }
 
 .gallery-content {
@@ -18,6 +82,76 @@
   overflow: auto;
 
   .block {
-    background-color: $black-transp;
+    div {
+      overflow: hidden;
+      position: relative;
+      display: inline-block;
+      height: 300px;
+      width: 100%;
+      border: 1px solid $second-color;
+      box-sizing: border-box;
+      margin-right: -4px;
+      margin-bottom: -4px;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      transform: translate3d(0, 0, 1px);
+
+      @media screen and (min-width: $screen-md-min) {
+        width: 50%;
+      }
+
+      @media screen and (min-width: $screen-lg-min) {
+        width: calc(100% / 3);
+      }
+    }
+  }
+}
+
+.big-picture {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $white-transp;
+  display: none;
+
+  @media screen and (min-width: $screen-md-min) {
+    display: unset;
+  }
+
+  .picture {
+    height: 600px;
+    width: 800px;
+    margin: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    background-color: $second-color;
+    border-radius: 20px;
+
+    @media screen and (min-width: $screen-lg-min) {
+      height: 800px;
+      width: 1200px;
+    }
+
+    .croix {
+      background-color: $second-color;
+      color: $first-color;
+      border: 3px solid $first-color;
+      border-radius: 20px;
+      width: 30px;
+      height: 30px;
+      padding: 0 8px;
+      line-height: 30px;
+      font-family: $title-font;
+      font-weight: bold;
+      box-sizing: border-box;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
   }
 }

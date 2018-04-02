@@ -1,7 +1,10 @@
-import { Category } from './category.model';
 import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
-import { Http, RequestOptions, RequestMethod, Headers } from '@angular/http';
+import { HttpService } from '../http/http.service';
+import { Category } from './category.model';
+import { DomSanitizer } from '@angular/platform-browser';
+import { AppConfigService } from '../app-config/app-config.service';
+import { AppConfig } from '../app-config/app-config.model';
 
 @Injectable()
 export class CategoryService {
@@ -9,19 +12,26 @@ export class CategoryService {
   categories: Category[] = [];
 
   constructor(
-    private http: Http
+    private http: HttpService,
+    private appConfigService: AppConfigService,
+    private sanitizer: DomSanitizer
   ) {}
 
   getCategories(): Observable<Category[]> {
     if (this.categories.length) {
       return Observable.of(this.categories);
     } else {
-      const headers = new Headers({ 'Content-Type': 'application/json' });
-      const options: RequestOptions = new RequestOptions({method: RequestMethod.Get, headers: headers });
 
-      return this.http.get('http://localhost:3000', options)
-        .map((response) => {
-          return response.json() as Category[];
+      return this.appConfigService.chargerAppConfig().flatMap((appConfig: AppConfig) => {
+        return this.http.get('/categories')
+          .map((response) => {
+            const categories = response.json() as Category[];
+            for (const category of categories) {
+              const url = `url(${appConfig.serviceUrl + encodeURI(category.firstPic as string)})`;
+              category.firstPic = this.sanitizer.bypassSecurityTrustStyle(url);
+            }
+            return categories;
+          });
         })
         .do((categories) => this.categories = categories);
     }

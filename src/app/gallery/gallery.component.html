@@ -1,14 +1,33 @@
 <div class="gallery-menu">
-
+  <div class="title">
+    Categories
+  </div>
+  <div class="category" (click)="switchCategoryVisibility(null)" [class.selected]="showedCategory === null">
+    Tout
+  </div>
+  <div class="category" *ngFor="let category of categories" (click)="switchCategoryVisibility(category)" [class.selected]="category === showedCategory">
+    {{category.name}}
+  </div>
+  <select [ngModel]="showedCategory" (ngModelChange)="switchCategoryVisibility($event)">
+    <option [ngValue]="null">Tout</option>
+    <option *ngFor="let category of categories" [ngValue]="category">
+      {{category.name}}
+    </option>
+  </select>
 </div>
 
 <div class="gallery-content">
   <div class="block">
-    <div *ngFor="let category of categories">
-      {{category.name}}
-      <p *ngFor="let photo of category.photos">
-        {{photo}}
-      </p>
-    </div>
+    <ng-container *ngFor="let picture of pictures">
+      <div *ngIf="picture.isShowed"
+        [style.background-image]="picture.url"
+        (click)="onClickPicture(picture)"></div>
+    </ng-container>
   </div>
+</div>
+
+<div *ngIf="bigPicture" class="big-picture" (click)="closePicture()">
+   <div class="picture" [style.background-image]="bigPicture.url" (click)="$event.stopPropagation()">
+     <div class="croix" (click)="closePicture()">x</div>
+   </div>
 </div>
