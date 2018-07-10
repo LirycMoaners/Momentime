@@ -6,7 +6,7 @@ export class MenuItemService {
   menuItemList: MenuItem[] = [
     {name: 'Accueil', route: '/accueil'},
     {name: 'Gallerie', route: '/gallery'},
-    {name: 'Offre', route: ''},
+    {name: 'Offre', route: '/accueil', fragment: 'pricing'},
     {name: 'Contact', route: '/accueil', fragment: 'contact'},
   ];
 }

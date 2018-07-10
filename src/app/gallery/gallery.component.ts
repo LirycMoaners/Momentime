@@ -31,18 +31,19 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit(): void {
     this.mainBarService.modifyIsHidden(false);
-    this.categoryService.getCategories().subscribe((categories: Category[]) => {
+    Observable.forkJoin(
+      this.categoryService.getCategories(),
+      this.pictureService.getPictures()
+    ).subscribe(([categories, pictures]: [Category[], Picture[]]) => {
       this.categories = categories;
+      this.pictures = pictures;
+
       this.showedCategory = this.categories
         .find((category: Category) => category.name === this.route.snapshot.queryParams['category']) || null;
       if (this.showedCategory) {
         this.switchCategoryVisibility(this.showedCategory);
       }
     });
-    this.pictureService.getPictures().subscribe((pictures: Picture[]) => {
-      this.pictures = pictures;
-    });
-
   }
 
   public switchCategoryVisibility(category: Category) {

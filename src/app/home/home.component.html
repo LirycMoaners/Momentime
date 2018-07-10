@@ -2,7 +2,12 @@
   <div class="menu">
     <div class="logo"></div>
     <div *ngFor="let anchor of homeService.anchorList" class="menu-item">
-        <a [routerLink]="['/accueil']" [fragment]="anchor.fragment" (click)="onAnchorClick()">{{anchor.name}}</a>
+        <a [routerLink]="['/accueil']"
+          [skipLocationChange]="true"
+          [fragment]="anchor.fragment"
+          (click)="onAnchorClick()">
+          {{anchor.name}}
+        </a>
     </div>
   </div>
   <div class="crossfade">

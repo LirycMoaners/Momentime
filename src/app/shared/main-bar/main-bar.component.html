@@ -3,6 +3,7 @@
     <div class="logo"></div>
     <a *ngFor="let menuItem of menuItemService.menuItemList"
       [routerLink]="[menuItem.route]"
+      [skipLocationChange]="true"
       [fragment]="menuItem.fragment"
       (click)="menuItem.fragment ? onAnchorClick() : null"
       class="menu-item">

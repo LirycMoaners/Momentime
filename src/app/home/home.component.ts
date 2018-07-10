@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
 
   onAnchorClick() {
     setTimeout(() =>
-      document.querySelector('#' + this.fragment).scrollIntoView({block: 'start', behavior: 'smooth'})
+      document.querySelector('#' + this.fragment).scrollIntoView({block: 'center', behavior: 'smooth'})
     );
   }
 
@@ -66,6 +66,6 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToGallery(category: Category) {
-    this.router.navigate(['/gallery'], {queryParams: {'category': category.name}});
+    this.router.navigate(['/gallery'], {queryParams: {'category': category.name}, skipLocationChange: true});
   }
 }

@@ -3,6 +3,7 @@ import { MenuItemService } from '../menu-item/menu-item.service';
 import { PanelService } from '../panel/panel.service';
 import { Component, OnInit } from '@angular/core';
 import { MainBarService } from './main-bar.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'main-bar',
@@ -16,6 +17,7 @@ export class MainBarComponent implements OnInit {
   fragment: string;
 
   constructor(
+    private route: ActivatedRoute,
     private mainBarService: MainBarService,
     private panelService: PanelService,
     public menuItemService: MenuItemService,
@@ -24,6 +26,11 @@ export class MainBarComponent implements OnInit {
 
   ngOnInit() {
     this.mainBarService.getIsHidden().subscribe((isBarHidden: boolean) => this.isBarHidden = isBarHidden);
+    this.route.fragment.subscribe(
+      (fragment: string) => {
+        this.fragment = fragment;
+      }
+    );
   }
 
   onClickBurger() {
@@ -33,7 +40,7 @@ export class MainBarComponent implements OnInit {
 
   onAnchorClick() {
     setTimeout(() =>
-      document.querySelector('#' + this.fragment).scrollIntoView({block: 'start', behavior: 'smooth'})
+      document.querySelector('#' + this.fragment).scrollIntoView({block: 'center', behavior: 'smooth'})
     );
   }
 }
