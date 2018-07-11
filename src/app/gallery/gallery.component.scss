@@ -120,6 +120,7 @@
   }
 
   .picture {
+    max-height: calc(100% - 70px);
     height: 600px;
     width: 800px;
     margin: auto;
@@ -133,6 +134,30 @@
     @media screen and (min-width: $screen-lg-min) {
       height: 800px;
       width: 1200px;
+    }
+
+    .arrow {
+      height: 100%;
+      font-size: 40px;
+      color: $first-color;
+      background-color: $black-transp;
+      display: table;
+      padding: 0 10px;
+
+      &.previous {
+        float: left;
+        border-radius: 20px 0 0 20px;
+      }
+
+      &.next {
+        float: right;
+        border-radius: 0 20px 20px 0;
+      }
+
+      span {
+        display: table-cell;
+        vertical-align: middle;
+      }
     }
 
     .croix {

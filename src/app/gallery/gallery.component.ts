@@ -64,4 +64,18 @@ export class GalleryComponent implements OnInit {
   public closePicture() {
     this.bigPicture = null;
   }
+
+  public changePicture(isNext: boolean) {
+    let nextPicture: Picture;
+
+    if (isNext) {
+      nextPicture = this.pictures.filter((picture) => picture.isShowed)[this.pictures.indexOf(this.bigPicture) + 1];
+    } else {
+      nextPicture = this.pictures.filter((picture) => picture.isShowed)[this.pictures.indexOf(this.bigPicture) - 1];
+    }
+
+    if (nextPicture) {
+      this.bigPicture = nextPicture;
+    }
+  }
 }

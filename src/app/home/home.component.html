@@ -39,10 +39,10 @@
   <div class="content-pricing">
     <h1>Photographie</h1>
     <p>
-      Envie d'un photographe pour un évènement, un portrait ou des photos en famille ?<br/>
-      Renseignez-vous ici avant de me contacter.
+      Parce que votre évènement est important à vos yeux, il nécessite de choisir le photographe pouvant répondre à toutes vos attentes. Dites
+      m'en davantage et évaluons cela ensemble.
     </p>
-    <button>En savoir plus</button>
+    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick()">Contactez-moi</button>
   </div>
   <div class="content-pricing">
     <h1>Cours</h1>
@@ -50,7 +50,7 @@
       Vous souhaitez compléter vos connaissance en photographie ou commencer tout simplement ?<br/>
       Je peux vous donner des cours, contactez-moi !
     </p>
-    <button>En savoir plus</button>
+    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick()">Contactez-moi</button>
   </div>
 </div>
 <div id="about" class="about">

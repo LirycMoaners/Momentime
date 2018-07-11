@@ -28,6 +28,12 @@
 
 <div *ngIf="bigPicture" class="big-picture" (click)="closePicture()">
    <div class="picture" [style.background-image]="bigPicture.url" (click)="$event.stopPropagation()">
+     <div class="arrow previous" (click)="changePicture(false)">
+       <span><</span>
+      </div>
+     <div class="arrow next" (click)="changePicture(true)">
+        <span>></span>
+      </div>
      <div class="croix" (click)="closePicture()">x</div>
    </div>
 </div>
