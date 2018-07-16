@@ -71,7 +71,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateToGallery(category: Category) {
-    this.router.navigate(['/gallery'], {queryParams: {'category': category.name}, skipLocationChange: true});
+    this.router.navigate(['/gallery'], {queryParams: {'category': category.name}});
   }
 
   sendEmail() {

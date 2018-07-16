@@ -3,7 +3,6 @@
     <div class="logo"></div>
     <div *ngFor="let anchor of homeService.anchorList" class="menu-item">
         <a [routerLink]="['/accueil']"
-          [skipLocationChange]="true"
           [fragment]="anchor.fragment"
           (click)="onAnchorClick()">
           {{anchor.name}}
@@ -29,7 +28,7 @@
 </div>
 
 <div id="portfolio" class="portfolio">
-  <h1>Gallerie</h1>
+  <h1>Galerie</h1>
   <div *ngFor="let category of categories" class="category" (click)="navigateToGallery(category)" [style.background-image]="category.firstPic">
     <div>{{category.name}}</div>
   </div>
@@ -47,7 +46,7 @@
   <div class="content-pricing">
     <h1>Cours</h1>
     <p>
-      Vous souhaitez compléter vos connaissance en photographie ou commencer tout simplement ?<br/>
+      Vous souhaitez compléter vos connaissances en photographie ou commencer tout simplement ?<br/>
       Je peux vous donner des cours, contactez-moi !
     </p>
     <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick()">Contactez-moi</button>
@@ -58,10 +57,10 @@
     <div class="about-content">
       <h1>A Propos</h1>
       <p>
-        Pour moi, la photo n'est pas là pour capturer un instant mais davantage pour interpreter un moment. Travailler toujours plus pour pouvoir
+        Pour moi, la photo n'est pas là pour capturer un instant mais davantage pour interpréter un moment. Travailler toujours plus pour pouvoir
         restituer aux autres ma sensibilité du monde. C'est cette philosophie qui anime ma créativité. En d'autres termes, mes photos se veulent à
-        l'exact image de ce que j'ai pu vivre durant une rencontre avec de jeunes parents fiers de leur progéniture, d'un marié en plein essayage
-        de son costume avant d'aller à la mairie ou bien encore d'une ville grouillante qui respire à l'autre bout du monde.
+        l'image de ce que j'ai pu vivre durant une rencontre avec de jeunes parents fiers de leur progéniture, d'un marié en plein essayage de son
+        costume avant d'aller à la mairie ou bien encore d'une ville grouillante qui respire à l'autre bout du monde.
       </p>
       <p class="signature">
         Edouard Delaunay <br/>
@@ -102,7 +101,7 @@
 
 <div class="footer">
   <p>Momentime. Tout droits réservés</p>
-  <p>Développé par Cyril Lefebvre supporté par Angular</p>
+  <p>Développé par Cyril Lefebvre</p>
 </div>
 
 <div class="arrow" [class.show]="!isArrowHidden" (click)="scrollTop()"></div>
