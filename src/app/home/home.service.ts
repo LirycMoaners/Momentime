@@ -8,7 +8,7 @@ export class HomeService {
 
   anchorList: Anchor[] = [
     {name: 'Presentation', fragment: 'presentation'},
-    {name: 'Gallerie', fragment: 'portfolio'},
+    {name: 'Galerie', fragment: 'portfolio'},
     {name: 'Offre', fragment: 'pricing'},
     {name: 'A Propos', fragment: 'about'},
     {name: 'Contact', fragment: 'contact'},
