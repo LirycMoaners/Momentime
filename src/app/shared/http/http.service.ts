@@ -22,4 +22,10 @@ export class HttpService {
     return this.appConfigService.chargerAppConfig()
       .flatMap((appConfig: AppConfig) => this.http.get(appConfig.serviceUrl + webApiUrl, options));
   }
+
+  public post(webApiUrl: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
+    this.options = options ? options : this.options;
+    return this.appConfigService.chargerAppConfig()
+      .flatMap((appConfig: AppConfig) => this.http.post(appConfig.serviceUrl + webApiUrl, body, options));
+  }
 }

@@ -74,19 +74,19 @@
 <div id="contact" class="contact">
   <div class="block">
     <h1>Contact</h1>
-    <p>contact@contact.com</p>
-    <p>http://www.momentime.com</p>
+    <p>contact@momen-time.com</p>
+    <p>http://www.momen-time.com</p>
     <div class="contact-form">
       <div class="left">
-        <input name="name" type="text" placeholder="Votre Nom *" required>
-        <input name="email" type="email" placeholder="Votre Email *" required>
-        <input name="phone" type="tel" placeholder="Votre Numéro de Téléphone *" required>
+        <input [(ngModel)]="email.from" name="email" type="email" placeholder="Votre Email *" required>
+        <input [(ngModel)]="email.tel" name="phone" type="tel" placeholder="Votre Numéro de Téléphone *" required>
+        <input [(ngModel)]="email.subject" name="subject" type="text" placeholder="Objet du Message *" required>
       </div>
       <div class="right">
-        <textarea name="message" placeholder="Votre Message ... *" required></textarea>
+        <textarea [(ngModel)]="email.text" name="message" placeholder="Votre Message ... *" required></textarea>
       </div>
     </div>
-    <button class="send">Envoyer</button>
+    <button (click)="sendEmail()" class="send">Envoyer</button>
   </div>
 </div>
 

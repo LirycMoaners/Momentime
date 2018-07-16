@@ -21,6 +21,7 @@ import { HttpModule } from '@angular/http';
 import { AppConfigService } from './shared/app-config/app-config.service';
 import { HttpService } from './shared/http/http.service';
 import { PictureService } from './shared/picture/picture.service';
+import { EmailService } from './shared/email/email.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { PictureService } from './shared/picture/picture.service';
     AppConfigService,
     HttpService,
     CategoryService,
-    PictureService
+    PictureService,
+    EmailService
   ],
   bootstrap: [AppComponent]
 })

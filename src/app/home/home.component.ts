@@ -1,9 +1,12 @@
 import { HomeService } from './home.service';
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
+import { Response } from '@angular/http';
 import { MainBarService } from '../shared/main-bar/main-bar.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../shared/category/category.model';
 import { CategoryService } from '../shared/category/category.service';
+import { Email } from '../shared/email/email.model';
+import { EmailService } from '../shared/email/email.service';
 
 @Component({
   selector: 'home',
@@ -13,6 +16,7 @@ import { CategoryService } from '../shared/category/category.service';
 
 export class HomeComponent implements OnInit {
   public categories: Category[] = [];
+  public email: Email = new Email();
   isArrowHidden = true;
   fragment: string;
 
@@ -22,7 +26,8 @@ export class HomeComponent implements OnInit {
     private mainBarService: MainBarService,
     private elRef: ElementRef,
     private categoryService: CategoryService,
-    public homeService: HomeService,
+    private emailService: EmailService,
+    public homeService: HomeService
   ) { }
 
   ngOnInit() {
@@ -67,5 +72,12 @@ export class HomeComponent implements OnInit {
 
   navigateToGallery(category: Category) {
     this.router.navigate(['/gallery'], {queryParams: {'category': category.name}, skipLocationChange: true});
+  }
+
+  sendEmail() {
+    if (this.email.from && this.email.subject && this.email.text && this.email.tel) {
+      this.emailService.sendEmail(this.email)
+        .subscribe((res: Response) => console.log(res.text));
+    }
   }
 }
