@@ -1,15 +1,6 @@
 @import '../shared/crossfade.scss';
 @import '../shared/theme.scss';
 
-:host {
-  overflow: auto;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
 button {
   color: $first-color;
   background-color: $second-color;
@@ -317,20 +308,5 @@ button {
     color: $first-color;
     font-family: $content-font;
     font-size: 0.8em;
-  }
-}
-
-.arrow {
-  position: fixed;
-  background: $arrow-up no-repeat;
-  background-size: 100%;
-  width: 70px;
-  height: 70px;
-  bottom: -90px;
-  right: 20px;
-  transition: all 1s;
-
-  &.show {
-    bottom: 20px;
   }
 }

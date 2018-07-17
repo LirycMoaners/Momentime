@@ -66,10 +66,6 @@ export class HomeComponent implements OnInit {
     );
   }
 
-  scrollTop() {
-    document.getElementById('home-slider').scrollIntoView({block: 'start', behavior: 'smooth'});
-  }
-
   navigateToGallery(category: Category) {
     this.router.navigate(['/gallery'], {queryParams: {'category': category.name}});
   }
