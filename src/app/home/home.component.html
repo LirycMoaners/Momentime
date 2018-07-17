@@ -85,6 +85,7 @@
         <textarea [(ngModel)]="email.text" name="message" placeholder="Votre Message ... *" required></textarea>
       </div>
     </div>
+    <p *ngIf="mailMessage">{{mailMessage}}</p>
     <button (click)="sendEmail()" class="send">Envoyer</button>
   </div>
 </div>

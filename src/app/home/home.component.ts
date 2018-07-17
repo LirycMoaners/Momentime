@@ -15,6 +15,7 @@ import { Anchor } from '../shared/anchor/anchor.model';
 export class HomeComponent implements OnInit {
   public categories: Category[] = [];
   public email: Email = new Email();
+  public mailMessage: string;
   public anchorList: Anchor[] = [
     {name: 'Presentation', fragment: 'presentation'},
     {name: 'Galerie', fragment: 'portfolio'},
@@ -58,7 +59,12 @@ export class HomeComponent implements OnInit {
 
   sendEmail() {
     if (this.email.from && this.email.subject && this.email.text && this.email.tel) {
-      this.emailService.sendEmail(this.email).subscribe();
+      this.emailService.sendEmail(this.email).subscribe(() => {
+        this.mailMessage = 'Message envoyé !';
+        this.email = new Email();
+      });
+    } else {
+      this.mailMessage = 'Merci de bien remplir tous les champs avant d\'envoyer votre message !';
     }
   }
 }
