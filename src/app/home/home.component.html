@@ -1,7 +1,7 @@
 <div id="home-slider" class="home-slider">
   <div class="menu">
     <div class="logo"></div>
-    <div *ngFor="let anchor of homeService.anchorList" class="menu-item">
+    <div *ngFor="let anchor of anchorList" class="menu-item">
         <a [routerLink]="['/accueil']"
           [fragment]="anchor.fragment"
           (click)="onAnchorClick()">

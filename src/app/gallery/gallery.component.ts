@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MainBarService } from '../shared/main-bar/main-bar.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoryService } from '../shared/category/category.service';
 import { PictureService } from '../shared/picture/picture.service';
@@ -22,7 +21,6 @@ export class GalleryComponent implements OnInit {
   picturesUrl: string;
 
   constructor(
-    private mainBarService: MainBarService,
     private route: ActivatedRoute,
     private categoryService: CategoryService,
     private pictureService: PictureService,
@@ -30,7 +28,6 @@ export class GalleryComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.mainBarService.modifyIsHidden(false);
     Observable.forkJoin(
       this.categoryService.getCategories(),
       this.pictureService.getPictures()
@@ -67,11 +64,12 @@ export class GalleryComponent implements OnInit {
 
   public changePicture(isNext: boolean) {
     let nextPicture: Picture;
+    const showedPictures: Picture[] = this.pictures.filter((picture) => picture.isShowed);
 
     if (isNext) {
-      nextPicture = this.pictures.filter((picture) => picture.isShowed)[this.pictures.indexOf(this.bigPicture) + 1];
+      nextPicture = showedPictures[showedPictures.indexOf(this.bigPicture) + 1];
     } else {
-      nextPicture = this.pictures.filter((picture) => picture.isShowed)[this.pictures.indexOf(this.bigPicture) - 1];
+      nextPicture = showedPictures[showedPictures.indexOf(this.bigPicture) - 1];
     }
 
     if (nextPicture) {

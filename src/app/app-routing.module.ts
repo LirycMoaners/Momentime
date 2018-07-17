@@ -21,7 +21,10 @@ const appRoutes: Routes = [
     component: GalleryComponent,
     data: { animation: 'home' }
   },
-  { path: '**', component: PageNotFoundComponent }
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

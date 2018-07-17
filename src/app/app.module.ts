@@ -1,4 +1,3 @@
-import { HomeService } from './home/home.service';
 import { MenuItemService } from './shared/menu-item/menu-item.service';
 import { SocialService } from './shared/social/social.service';
 import { NgModule } from '@angular/core';
@@ -11,7 +10,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MainBarComponent } from './shared/main-bar/main-bar.component';
-import { MainBarService } from './shared/main-bar/main-bar.service';
 import { PanelComponent } from './shared/panel/panel.component';
 import { PanelService } from './shared/panel/panel.service';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -41,11 +39,9 @@ import { EmailService } from './shared/email/email.service';
     FormsModule
   ],
   providers: [
-    MainBarService,
     PanelService,
     SocialService,
     MenuItemService,
-    HomeService,
     AppConfigService,
     HttpService,
     CategoryService,

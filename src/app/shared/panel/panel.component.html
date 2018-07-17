@@ -2,7 +2,6 @@
   <a *ngFor="let menuItem of menuItemService.menuItemList"
     [routerLink]="[menuItem.route]"
     [fragment]="menuItem.fragment"
-    (click)="menuItem.fragment ? onAnchorClick() : null"
     class="panel-item">
     <span>{{menuItem.name}}</span>
   </a>

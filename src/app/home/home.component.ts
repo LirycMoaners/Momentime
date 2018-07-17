@@ -1,12 +1,10 @@
-import { HomeService } from './home.service';
-import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
-import { Response } from '@angular/http';
-import { MainBarService } from '../shared/main-bar/main-bar.service';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Category } from '../shared/category/category.model';
 import { CategoryService } from '../shared/category/category.service';
 import { Email } from '../shared/email/email.model';
 import { EmailService } from '../shared/email/email.service';
+import { Anchor } from '../shared/anchor/anchor.model';
 
 @Component({
   selector: 'home',
@@ -17,47 +15,35 @@ import { EmailService } from '../shared/email/email.service';
 export class HomeComponent implements OnInit {
   public categories: Category[] = [];
   public email: Email = new Email();
-  isArrowHidden = true;
-  fragment: string;
+  public anchorList: Anchor[] = [
+    {name: 'Presentation', fragment: 'presentation'},
+    {name: 'Galerie', fragment: 'portfolio'},
+    {name: 'Offre', fragment: 'pricing'},
+    {name: 'A Propos', fragment: 'about'},
+    {name: 'Contact', fragment: 'contact'},
+  ];
+  private fragment: string;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private mainBarService: MainBarService,
-    private elRef: ElementRef,
     private categoryService: CategoryService,
-    private emailService: EmailService,
-    public homeService: HomeService
+    private emailService: EmailService
   ) { }
 
   ngOnInit() {
-    this.mainBarService.modifyIsHidden(true);
     this.route.fragment.subscribe(
       (fragment: string) => {
         this.fragment = fragment;
-      }
-    );
-    this.homeService.getEvent().subscribe(
-      () => {
-        this.onAnchorClick();
+        if (fragment) {
+          this.onAnchorClick();
+        }
       }
     );
 
     this.categoryService.getCategories().subscribe((categories: Category[]) => {
       this.categories = categories;
     });
-  }
-
-  @HostListener('scroll', ['$event'])
-  onScroll(event) {
-    const number = this.elRef.nativeElement.scrollTop;
-    if (number >= 50) {
-      this.mainBarService.modifyIsHidden(false);
-      this.isArrowHidden = false;
-    } else if (number < 50) {
-      this.mainBarService.modifyIsHidden(true);
-      this.isArrowHidden = true;
-    }
   }
 
   onAnchorClick() {
@@ -72,8 +58,7 @@ export class HomeComponent implements OnInit {
 
   sendEmail() {
     if (this.email.from && this.email.subject && this.email.text && this.email.tel) {
-      this.emailService.sendEmail(this.email)
-        .subscribe((res: Response) => console.log(res.text));
+      this.emailService.sendEmail(this.email).subscribe();
     }
   }
 }
