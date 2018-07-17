@@ -30,4 +30,8 @@ export class PanelComponent implements OnInit {
       this.panelService.modifyIsHidden(true);
     }
   }
+
+  onClickItem() {
+    this.panelService.modifyIsHidden(true);
+  }
 }

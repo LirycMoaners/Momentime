@@ -4,5 +4,5 @@
   <div [@routerAnimation]="getRouteAnimation(route)">
     <router-outlet #route="outlet"></router-outlet>
   </div>
-  <div class="arrow" [class.show]="router.url !== '/' && isArrowVisible" (click)="scrollTop()"></div>
 </div>
+<div class="arrow" [class.show]="router.url !== '/' && isArrowVisible" (click)="scrollTop()"></div>

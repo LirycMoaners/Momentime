@@ -1,7 +1,7 @@
 import { SocialService } from '../social/social.service';
 import { MenuItemService } from '../menu-item/menu-item.service';
 import { PanelService } from '../panel/panel.service';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'main-bar',
@@ -9,7 +9,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['main-bar.component.scss']
 })
 
-export class MainBarComponent {
+export class MainBarComponent implements OnInit {
   @Input() isBarHidden = true;
   isPanelHidden = true;
 
@@ -19,8 +19,11 @@ export class MainBarComponent {
     public socialService: SocialService
   ) { }
 
+  ngOnInit(): void {
+    this.panelService.getIsHidden().subscribe((isHidden) => this.isPanelHidden = isHidden);
+  }
+
   onClickBurger() {
-    this.isPanelHidden = !this.isPanelHidden;
-    this.panelService.modifyIsHidden(this.isPanelHidden);
+    this.panelService.modifyIsHidden(!this.isPanelHidden);
   }
 }

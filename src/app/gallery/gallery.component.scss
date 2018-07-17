@@ -13,20 +13,29 @@
 }
 
 .gallery-menu {
-  flex: 0 0 100px;
+  flex: 0 0 20px;
   background-color: $second-color;
   padding: 30px;
   color: $first-color;
+  text-align: center;
 
   @media screen and (min-width: $screen-md-min) {
     flex: 0 0 240px;
     border-right: 1px solid $first-color;
+    text-align: left;
   }
 
   .title {
     font-family: $title-font;
-    font-size: 30px;
+    font-size: 20px;
     text-align: center;
+    display: inline-block;
+
+    @media screen and (min-width: $screen-md-min) {
+      display: block;
+      font-size: 30px;
+      padding-bottom: 15px;
+    }
   }
 
   .category {
@@ -55,7 +64,7 @@
 
   select {
     margin: auto;
-    display: block;
+    display: inline-block;
     border: 1px solid $second-color;
     border-radius: 20px;
     height: 30px;
@@ -63,6 +72,7 @@
     font-size: 20px;
     font-weight: bold;
     padding: 0 5px;
+    margin-left: 20px;
 
     @media screen and (min-width: $screen-md-min) {
       display: none;
