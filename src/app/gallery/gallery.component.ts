@@ -62,9 +62,11 @@ export class GalleryComponent implements OnInit {
     this.bigPicture = null;
   }
 
-  public changePicture(isNext: boolean) {
+  public changePicture(isNext: boolean, event: Event) {
     let nextPicture: Picture;
     const showedPictures: Picture[] = this.pictures.filter((picture) => picture.isShowed);
+
+    event.stopPropagation();
 
     if (isNext) {
       nextPicture = showedPictures[showedPictures.indexOf(this.bigPicture) + 1];

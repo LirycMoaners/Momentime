@@ -8,7 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
   templateUrl: 'main-bar.component.html',
   styleUrls: ['main-bar.component.scss']
 })
-
 export class MainBarComponent implements OnInit {
   @Input() isBarHidden = true;
   isPanelHidden = true;
@@ -25,5 +24,11 @@ export class MainBarComponent implements OnInit {
 
   onClickBurger() {
     this.panelService.modifyIsHidden(!this.isPanelHidden);
+  }
+
+  onAnchorClick(fragment: string) {
+    setTimeout(() =>
+      document.querySelector('#' + fragment).scrollIntoView({block: 'center', behavior: 'smooth'})
+    );
   }
 }

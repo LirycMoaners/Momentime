@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Category } from '../shared/category/category.model';
 import { CategoryService } from '../shared/category/category.service';
 import { Email } from '../shared/email/email.model';
@@ -9,47 +9,35 @@ import { Anchor } from '../shared/anchor/anchor.model';
 @Component({
   selector: 'home',
   templateUrl: 'home.component.html',
-  styleUrls: ['home.component.scss'],
+  styleUrls: ['home.component.scss']
 })
-
 export class HomeComponent implements OnInit {
   public categories: Category[] = [];
   public email: Email = new Email();
   public mailMessage: string;
   public anchorList: Anchor[] = [
-    {name: 'Presentation', fragment: 'presentation'},
+    {name: 'Présentation', fragment: 'presentation'},
     {name: 'Galerie', fragment: 'portfolio'},
     {name: 'Offre', fragment: 'pricing'},
     {name: 'A Propos', fragment: 'about'},
     {name: 'Contact', fragment: 'contact'},
   ];
-  private fragment: string;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private categoryService: CategoryService,
     private emailService: EmailService
   ) { }
 
   ngOnInit() {
-    this.route.fragment.subscribe(
-      (fragment: string) => {
-        this.fragment = fragment;
-        if (fragment) {
-          this.onAnchorClick();
-        }
-      }
-    );
-
     this.categoryService.getCategories().subscribe((categories: Category[]) => {
       this.categories = categories;
     });
   }
 
-  onAnchorClick() {
+  onAnchorClick(fragment: string) {
     setTimeout(() =>
-      document.querySelector('#' + this.fragment).scrollIntoView({block: 'center', behavior: 'smooth'})
+      document.querySelector('#' + fragment).scrollIntoView({block: 'center', behavior: 'smooth'})
     );
   }
 

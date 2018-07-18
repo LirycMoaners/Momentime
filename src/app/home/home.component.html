@@ -2,9 +2,7 @@
   <div class="menu">
     <div class="logo"></div>
     <div *ngFor="let anchor of anchorList" class="menu-item">
-        <a [routerLink]="['/accueil']"
-          [fragment]="anchor.fragment"
-          (click)="onAnchorClick()">
+        <a (click)="onAnchorClick(anchor.fragment)">
           {{anchor.name}}
         </a>
     </div>
@@ -21,7 +19,7 @@
     <h1>Presentation</h1>
     <p>
       Bienvenue sur Momen'time ! Vous avez un projet et cherchez un photographe ou souhaitez apprendre à vous servir de votre boîtier,
-      je me ferai un plaisir d'en parler avec vous. Mais avant, baladez-vous dans les différents galeries pour découvrir mon travail.
+      je me ferai un plaisir d'en parler avec vous. Mais avant, baladez-vous dans les différentes galeries pour découvrir mon travail.
       On se retrouve après dans la rubrique "contact" !
     </p>
   </div>
