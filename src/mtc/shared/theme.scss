@@ -1,0 +1,82 @@
+@import './font.scss';
+@import './color.scss';
+@import './image.scss';
+
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
+.block {
+  max-width: 1200px;
+  margin: auto;
+}
+
+p {
+  font-family: $content-font;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 3px;
+  margin: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    font-size: 1.5em;
+  }
+}
+
+h1 {
+  font-family: $title-font;
+  font-size: 2rem;
+  line-height: 66px;
+  margin: 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    font-size: 3rem;
+    line-height: 90px;
+  }
+}
+
+input, textarea {
+  background-color: transparent;
+  border: 2px solid $first-color;
+  font-family: $content-font;
+  font-size: 1.5em;
+  padding: 0 10px;
+  margin: 10px 0;
+  box-sizing: border-box;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.social-list {
+  height: 70px;
+
+  .social{
+    display: inline-block;
+    width: 50px;
+    height: 100%;
+    vertical-align: top;
+    margin: 0 5px;
+    transition: all 1s;
+
+    &.youtube {
+      @include image($youtube, 100%, auto);
+    }
+
+    &.instagram {
+      @include image($instagram, 100%, auto);
+    }
+
+    &.facebook {
+      @include image($facebook, 100%, auto);
+    }
+
+    &:hover {
+      transform: rotateY(180deg);
+      filter: invert(100%);
+    }
+  }
+}

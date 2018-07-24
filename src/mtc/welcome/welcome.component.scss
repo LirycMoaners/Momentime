@@ -1,0 +1,62 @@
+@import "../shared/theme.scss";
+
+:host {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+
+  .content {
+    position: relative;
+    top: calc(50% - 150px);
+    height: 300px;
+    text-align: center;
+    max-width: 800px;
+    min-width: 300px;
+    margin: auto;
+    background: $flash no-repeat center;
+    background-size: 100% 100%;
+
+    .title {
+      height: 80%;
+      width: 100%;
+      background: $logo no-repeat center;
+      background-size: contain;
+    }
+
+    .button-container {
+      min-height: 80px;
+      height: 20%;
+
+      .button-enter {
+        padding: 20px;
+        border: none;
+        background-color: $white-transp;
+        font-family: $title-font;
+        font-size: 2em;
+        height: 60px;
+        border: 3px solid $second-color;
+        border-radius: 50px;
+
+        &:hover {
+          background: $flash no-repeat center;
+          background-size: 100% 100%;
+        }
+      }
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      top: calc(50% - 250px);
+      height: 500px;
+
+      .button-container {
+        .button-enter {
+          padding: 10px;
+          font-size: 3em;
+          height: 100px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+$logo : url("/assets/image/logo/logo-border.png");
+$logo-negatif : url("/assets/image/logo/logo-negatif.png");
+$logo-mini : url("/assets/image/logo/logo-mini.png");
+
+$facebook : url("/assets/image/icon/facebook-black-white.svg");
+$instagram : url("/assets/image/icon/instagram-black-white.svg");
+$youtube : url("/assets/image/icon/youtube-black-white.svg");
+$flash : url("/assets/image/icon/cameraflash.png");
+$arrow-up : url("/assets/image/icon/arrow-up.png");
+$burger : url("/assets/image/icon/burger.png");
+
+$slideshow1 : url("/assets/image/picture/content/slideshow1.jpg");
+$slideshow2 : url("/assets/image/picture/content/slideshow2.jpg");
+$slideshow3 : url("/assets/image/picture/content/slideshow3.jpg");
+$category1 : url("/assets/image/picture/content/category1.jpg");
+$category2 : url("/assets/image/picture/content/category2.jpg");
+$category3 : url("/assets/image/picture/content/category3.jpg");
+$category4 : url("/assets/image/picture/content/category4.jpg");
+$category5 : url("/assets/image/picture/content/category5.jpg");
+$about : url("/assets/image/picture/content/about.jpg");
+
+
+@mixin image($img, $width, $height) {
+  background: $img no-repeat center;
+  background-size: $width $height;
+  transform: translate3d(0, 0, 1px);
+}

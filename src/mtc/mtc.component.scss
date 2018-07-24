@@ -1,0 +1,37 @@
+@import './shared/theme.scss';
+
+.content {
+  position: absolute;
+  overflow: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  &.show-bar {
+    top: 70px;
+  }
+
+  @media screen and (min-width: $screen-md-min){
+    &.show-bar {
+      &:not(.always-open) {
+        top: 0;
+      }
+    }
+  }
+}
+
+.arrow {
+  position: fixed;
+  background: $arrow-up no-repeat;
+  background-size: 100%;
+  width: 70px;
+  height: 70px;
+  bottom: -90px;
+  right: 20px;
+  transition: all 1s;
+
+  &.show {
+    bottom: 20px;
+  }
+}

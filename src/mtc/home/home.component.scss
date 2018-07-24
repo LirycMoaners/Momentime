@@ -1,0 +1,320 @@
+@import '../shared/crossfade.scss';
+@import '../shared/theme.scss';
+
+:host {
+  display: block;
+}
+
+button {
+  color: $first-color;
+  background-color: $second-color;
+  border: 2px solid $first-color;
+  height: 80px;
+  font-family: $title-font;
+  font-size: 2em;
+  padding: 15px;
+
+  &:hover {
+    background-color: $first-color;
+    border-color: $second-color;
+    color: $second-color;
+  }
+}
+
+.home-slider{
+  height: 500px;
+  background-color: $second-color;
+
+  .crossfade {
+    figure {
+      animation: imageAnimation 18s linear infinite 0s;
+
+      &:nth-child(1) {
+        background-image: $slideshow1;
+      }
+      &:nth-child(2) {
+        animation-delay: 6s;
+        background-image: $slideshow2;
+      }
+      &:nth-child(3) {
+        animation-delay: 12s;
+        background-image: $slideshow3;
+      }
+    }
+  }
+
+  .menu {
+    position: absolute;
+    left: 10%;
+    width: 80%;
+    height: 400px;
+    background-color: $black-transp;
+    z-index: 2;
+    padding: 50px 0;
+
+    .logo{
+      @include image($logo-negatif, 100%, auto);
+      position: relative;
+      width: 120%;
+      height: 300px;
+      left: -10%;
+      margin: 0;
+    }
+
+    .menu-item {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $screen-md-min){
+    height: 800px;
+
+    .menu {
+      left: 5%;
+      width: 20%;
+      min-width: 200px;
+      height: 700px;
+
+      .logo{
+        margin: 0 0 30px;
+      }
+
+      .menu-item {
+        display: block;
+        text-align: center;
+        margin: 10px 0;
+
+        a{
+          font-family: $content-font;
+          font-weight: bold;
+          color: $first-color;
+          text-decoration: none;
+          font-size: 1.8em;
+          transition: all 0.5s;
+
+          &:hover {
+            letter-spacing: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.presentation {
+  overflow: auto;
+  background: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
+  color: $first-color;
+  padding: 50px;
+  position: relative;
+}
+
+.portfolio {
+  overflow: auto;
+  font-size: 0;
+  background-color: $first-color;
+  padding-top: 10px;
+
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 30px;
+  }
+
+  h1 {
+    display: block;
+    text-align: center;
+  }
+
+  .category {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 400px;
+    width: 100%;
+    border: 1px solid $second-color;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    transform: translate3d(0, 0, 1px);
+
+    div {
+      position: absolute;
+      line-height: 80px;
+      width: 100%;
+      background: $white-transp;
+      text-align: center;
+      font-family: $style-font;
+      font-size: 3rem;
+      top: calc(50% - 40px);
+      transition: all 1s;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      width: 50%;
+    }
+
+    @media screen and (min-width: $screen-lg-min) {
+      width: calc(100% / 3);
+
+      div {
+        top: 100%;
+      }
+
+      &:hover {
+        div {
+          top: calc(50% - 40px);
+        }
+      }
+    }
+  }
+}
+
+.pricing {
+  overflow: auto;
+  color: $first-color;
+  font-size: 0;
+  background: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
+
+  .content-pricing {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border: 1px solid $first-color;
+    box-sizing: border-box;
+    vertical-align: top;
+    font-size: 1rem;
+    padding: 30px 10px;
+  }
+
+  p {
+    margin-bottom: 30px;
+  }
+
+  @media screen and (min-width: $screen-md-min) {
+    display: flex;
+
+    .content-pricing {
+      width: 50%;
+    }
+  }
+}
+
+.about {
+  overflow: auto;
+  background: $about no-repeat fixed center;
+  background-size: cover;
+  padding: 50px 20px;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 50px;
+  }
+
+  .about-content {
+    max-width: 450px;
+    padding: 30px;
+    background-color: $white-transp;
+
+    .signature {
+      text-align: right;
+      font-family: $style-font;
+      font-size: 2em;
+      line-height: 1em;
+    }
+  }
+}
+
+.contact {
+  overflow: auto;
+  background-color: $second-color;
+  background: radial-gradient(circle, $black-transp, $second-color);
+  color: $first-color;
+  text-align: center;
+  padding: 50px 20px;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 50px;
+  }
+
+  h1 {
+    margin: 0 auto 10px;
+    width: 280px;
+    border: 2px solid $first-color;
+    height: 50px;
+    padding: 10px;
+    transform: skew(10deg);
+
+    @media screen and (min-width: $screen-sm-min) {
+      height: 70px;
+    }
+  }
+
+  .contact-form {
+    margin: 30px 0 0;
+
+    input, textarea {
+      color: $first-color;
+      width: 100%;
+      line-height: 50px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
+
+    textarea {
+      height: 200px;
+      resize: none;
+    }
+
+    @media screen and (min-width: $screen-md-min) {
+      display: flex;
+
+      .left {
+        flex: 1;
+        text-align: left;
+
+        input {
+          width: calc(100% - 10px);
+        }
+      }
+
+      .right {
+        flex: 1;
+        text-align: right;
+
+        textarea {
+          width: calc(100% - 10px);
+          height: calc(100% - 20px);
+        }
+      }
+    }
+  }
+}
+
+.send {
+  margin-top: 30px;
+}
+
+.follow {
+  text-align: center;
+  overflow: auto;
+  background-color: $first-color;
+  padding: 50px 0px;
+
+  .social-list {
+    filter: invert(100%);
+  }
+}
+
+.footer {
+  overflow: auto;
+  background-color: $grey;
+  text-align: center;
+  padding: 50px;
+
+  p {
+    color: $first-color;
+    font-family: $content-font;
+    font-size: 0.8em;
+  }
+}

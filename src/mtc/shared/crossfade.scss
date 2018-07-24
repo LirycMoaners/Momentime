@@ -1,0 +1,39 @@
+.crossfade {
+  position: relative;
+  height: 100%;
+}
+
+.crossfade > figure {
+  backface-visibility: hidden;
+  background-size: cover;
+  background-position: center center;
+  color: transparent;
+  height: 100%;
+  left: 0px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  z-index: 0;
+  margin: 0;
+}
+
+@keyframes imageAnimation {
+  0% {
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  8% {
+    animation-timing-function: ease-out;
+    opacity: 1;
+  }
+  27% {
+    opacity: 1
+  }
+  45% {
+    opacity: 0
+  }
+  100% {
+    opacity: 0
+  }
+}

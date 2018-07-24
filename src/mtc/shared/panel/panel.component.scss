@@ -1,0 +1,44 @@
+@import '../theme.scss';
+
+:host {
+  position: fixed;
+  top: 70px;
+  bottom: 0;
+  z-index: 200;
+  width: 0;
+
+  .panel {
+    position: relative;
+    height: 100%;
+    width: 240px;
+    left: -300px;
+    transition: all 1s;
+    background-color: $black-transp;
+
+    &.show {
+      left: 0;
+    }
+
+    .panel-item {
+      color: $first-color;
+      font-size: 2rem;
+      font-family: $content-font;
+      display: block;
+      line-height: 68px;
+      padding: 0 20px;
+      border: 1px solid $first-color;
+      border-width: 1px 0;
+      text-decoration: solid;
+
+      .arrow {
+        float: right;
+      }
+    }
+
+    .social-list {
+      position: absolute;
+      bottom: 30px;
+      padding: 0 30px;
+    }
+  }
+}

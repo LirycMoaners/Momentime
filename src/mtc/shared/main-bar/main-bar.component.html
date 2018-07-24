@@ -1,0 +1,27 @@
+<div class="bar" [class.show]="!isBarHidden">
+  <div class="large-screen">
+    <a class="logo"
+      [routerLink]="[menuItemService.menuItemList[0].route]"
+      [fragment]="menuItemService.menuItemList[0].fragment"
+      (click)="onAnchorClick(menuItemService.menuItemList[0].fragment)">
+    </a>
+    <a *ngFor="let menuItem of menuItemService.menuItemList"
+      [routerLink]="[menuItem.route]"
+      [fragment]="menuItem.fragment"
+      (click)="menuItem.fragment ? onAnchorClick(menuItem.fragment) : null"
+      class="menu-item">
+      <span>{{menuItem.name}}</span>
+    </a>
+
+    <div class="social-list">
+      <a *ngFor="let social of socialService.socialList"
+        [class]="'social ' + social.name"
+        [href]="social.url">
+      </a>
+    </div>
+  </div>
+  <div class="small-screen">
+    <button class="menu-button" (click)="onClickBurger()"></button>
+    <div class="logo-center"></div>
+  </div>
+</div>
