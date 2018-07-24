@@ -33,7 +33,7 @@ export class CategoryService {
           map((response) => {
             const categories = response.json() as Category[];
             for (const category of categories) {
-              const url = `url(${this.appConfig.serviceUrl + encodeURI(category.firstPic as string)})`;
+              const url = 'url("' + this.appConfig.serviceUrl + encodeURI(category.firstPic as string) + '")';
               category.firstPic = this.sanitizer.bypassSecurityTrustStyle(url);
             }
             return categories;

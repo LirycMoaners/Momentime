@@ -35,7 +35,7 @@ export class PictureService {
         map(([appConfig, response]) => {
           const pictures: Picture[] = response.json() as Picture[];
           for (const picture of pictures) {
-            const url = `url(${appConfig.serviceUrl + encodeURI(picture.url as string)})`;
+            const url = 'url("' + appConfig.serviceUrl + encodeURI(picture.url as string) + '")';
             picture.url = this.sanitizer.bypassSecurityTrustStyle(url);
           }
           return pictures;
