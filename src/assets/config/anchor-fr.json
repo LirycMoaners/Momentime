@@ -1,0 +1,7 @@
+[
+  {"name": "Présentation", "fragment": "presentation"},
+  {"name": "Galerie", "fragment": "portfolio"},
+  {"name": "Offre", "fragment": "pricing"},
+  {"name": "A Propos", "fragment": "about"},
+  {"name": "Contact", "fragment": "contact"}
+]

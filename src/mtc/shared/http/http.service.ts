@@ -20,7 +20,7 @@ export class HttpService {
 
   public get(webApiUrl: string, options?: RequestOptionsArgs): Observable<Response> {
     this.options = options ? options : this.options;
-    return this.appConfigService.chargerAppConfig()
+    return this.appConfigService.getAppConfig()
       .pipe(
         flatMap((appConfig: AppConfig) => this.http.get(appConfig.serviceUrl + webApiUrl, options))
       );
@@ -28,7 +28,7 @@ export class HttpService {
 
   public post(webApiUrl: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
     this.options = options ? options : this.options;
-    return this.appConfigService.chargerAppConfig()
+    return this.appConfigService.getAppConfig()
       .pipe(
         flatMap((appConfig: AppConfig) => this.http.post(appConfig.serviceUrl + webApiUrl, body, options))
       );

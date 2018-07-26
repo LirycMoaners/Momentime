@@ -1,4 +1,4 @@
-import { Http, Response } from '@angular/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { AppConfig } from './app-config.model';
 import { Observable, of } from 'rxjs';
@@ -12,7 +12,7 @@ export class AppConfigService {
     private http: Http
   ) {}
 
-  public chargerAppConfig(): Observable<AppConfig> {
+  public getAppConfig(): Observable<AppConfig> {
     if (this.appConfig) {
       return of(this.appConfig);
     } else {

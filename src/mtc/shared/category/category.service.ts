@@ -24,7 +24,7 @@ export class CategoryService {
       return of(this.categories);
     } else {
 
-      return this.appConfigService.chargerAppConfig()
+      return this.appConfigService.getAppConfig()
         .pipe(
           flatMap((appConfig: AppConfig) => {
             this.appConfig = appConfig;

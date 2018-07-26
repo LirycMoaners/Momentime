@@ -1,7 +1,9 @@
-import { SocialService } from '../social/social.service';
+import { AppConfigService } from '../app-config/app-config.service';
 import { MenuItemService } from '../menu-item/menu-item.service';
 import { Component, ElementRef, OnInit, HostListener } from '@angular/core';
 import { PanelService } from './panel.service';
+import { AppConfig } from '../app-config/app-config.model';
+import { MenuItem } from '../menu-item/menu-item.model';
 
 @Component({
   selector: 'mtc-panel',
@@ -12,16 +14,20 @@ import { PanelService } from './panel.service';
 export class PanelComponent implements OnInit {
   isPanelHidden = true;
   fragment: string;
+  public appConfig: AppConfig;
+  public menuItemList: MenuItem[];
 
   constructor(
-    private panelService: PanelService,
     public menuItemService: MenuItemService,
-    public socialService: SocialService,
+    private panelService: PanelService,
+    private appConfigService: AppConfigService,
     private eref: ElementRef
   ) { }
 
   ngOnInit() {
     this.panelService.getIsHidden().subscribe((isPanelHidden: boolean) => this.isPanelHidden = isPanelHidden);
+    this.appConfigService.getAppConfig().subscribe((appConfig: AppConfig) => this.appConfig = appConfig);
+    this.menuItemService.getMenuItemList('fr').subscribe((menuItemList: MenuItem[]) => this.menuItemList = menuItemList);
   }
 
   @HostListener('document:click', ['$event'])

@@ -1,11 +1,11 @@
 <div class="bar" [class.show]="!isBarHidden">
   <div class="large-screen">
-    <a class="logo"
-      [routerLink]="[menuItemService.menuItemList[0].route]"
-      [fragment]="menuItemService.menuItemList[0].fragment"
-      (click)="onAnchorClick(menuItemService.menuItemList[0].fragment)">
+    <a *ngIf="menuItemList" class="logo"
+      [routerLink]="[menuItemList[0].route]"
+      [fragment]="menuItemList[0].fragment"
+      (click)="onAnchorClick(menuItemList[0].fragment)">
     </a>
-    <a *ngFor="let menuItem of menuItemService.menuItemList"
+    <a *ngFor="let menuItem of menuItemList"
       [routerLink]="[menuItem.route]"
       [fragment]="menuItem.fragment"
       (click)="menuItem.fragment ? onAnchorClick(menuItem.fragment) : null"
@@ -13,11 +13,10 @@
       <span>{{menuItem.name}}</span>
     </a>
 
-    <div class="social-list">
-      <a *ngFor="let social of socialService.socialList"
-        [class]="'social ' + social.name"
-        [href]="social.url">
-      </a>
+    <div *ngIf="appConfig" class="social-list">
+      <a class="social youtube" [href]="appConfig.youtubeUrl"></a>
+      <a class="social instagram" [href]="appConfig.instagramUrl"></a>
+      <a class="social facebook" [href]="appConfig.facebookUrl"></a>
     </div>
   </div>
   <div class="small-screen">

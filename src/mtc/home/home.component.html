@@ -14,65 +14,48 @@
   </div>
 </div>
 
-<div id="presentation" class="presentation">
+<div *ngIf="homeText?.presentationTitle" id="presentation" class="presentation">
   <div class="block">
-    <h1>Presentation</h1>
-    <p>
-      Bienvenue sur Momen'time ! Vous avez un projet et cherchez un photographe ou souhaitez apprendre à vous servir de votre boîtier,
-      je me ferai un plaisir d'en parler avec vous. Mais avant, baladez-vous dans les différentes galeries pour découvrir mon travail.
-      On se retrouve après dans la rubrique "contact" !
-    </p>
+    <h1>{{homeText.presentationTitle}}</h1>
+    <p>{{homeText.presentationText}}</p>
   </div>
 </div>
 
-<div id="portfolio" class="portfolio">
-  <h1>Galerie</h1>
+<div *ngIf="homeText?.portfolioTitle" id="portfolio" class="portfolio">
+  <h1>{{homeText.portfolioTitle}}</h1>
   <div *ngFor="let category of categories" class="category" (click)="navigateToGallery(category)" [style.background-image]="category.firstPic">
     <div>{{category.name}}</div>
   </div>
 </div>
 
-<div id="pricing" class="pricing">
-  <div class="content-pricing">
-    <h1>Photographie</h1>
-    <p>
-      Parce que votre évènement est important à vos yeux, il nécessite de choisir le photographe pouvant répondre à toutes vos attentes. Dites
-      m'en davantage et évaluons cela ensemble.
-    </p>
-    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick('contact')">Contactez-moi</button>
+<div *ngIf="homeText?.pricingPhotoTitle || homeText?.pricingLessonTitle" id="pricing" class="pricing">
+  <div *ngIf="homeText.pricingPhotoTitle" class="content-pricing">
+    <h1>{{homeText.pricingPhotoTitle}}</h1>
+    <p>{{homeText.pricingPhotoText}}</p>
+    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick('contact')">{{homeText.pricingButton}}</button>
   </div>
   <div class="content-pricing">
-    <h1>Cours</h1>
-    <p>
-      Vous souhaitez compléter vos connaissances en photographie ou commencer tout simplement ?<br/>
-      Je peux vous donner des cours, contactez-moi !
-    </p>
-    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick('contact')">Contactez-moi</button>
+    <h1>{{homeText.pricingLessonTitle}}</h1>
+    <p>{{homeText.pricingLessonText}}</p>
+    <button [routerLink]="['/accueil']" fragment="contact" (click)="onAnchorClick('contact')">{{homeText.pricingButton}}</button>
   </div>
 </div>
-<div id="about" class="about">
+
+<div *ngIf="homeText?.aboutTitle" id="about" class="about">
   <div class="block">
     <div class="about-content">
-      <h1>A Propos</h1>
-      <p>
-        Pour moi, la photo n'est pas là pour capturer un instant mais davantage pour interpréter un moment. Travailler toujours plus pour pouvoir
-        restituer aux autres ma sensibilité du monde. C'est cette philosophie qui anime ma créativité. En d'autres termes, mes photos se veulent à
-        l'image de ce que j'ai pu vivre durant une rencontre avec de jeunes parents fiers de leur progéniture, d'un marié en plein essayage de son
-        costume avant d'aller à la mairie ou bien encore d'une ville grouillante qui respire à l'autre bout du monde.
-      </p>
-      <p class="signature">
-        Edouard Delaunay <br/>
-        Photographe
-      </p>
+      <h1>{{homeText.aboutTitle}}</h1>
+      <p>{{homeText.aboutText}}</p>
+      <p class="signature">{{homeText.aboutSignature}}</p>
     </div>
   </div>
 </div>
 
-<div id="contact" class="contact">
+<div *ngIf="homeText?.contactTitle" id="contact" class="contact">
   <div class="block">
-    <h1>Contact</h1>
-    <p>contact@momen-time.com</p>
-    <p>http://www.momen-time.com</p>
+    <h1>{{homeText.contactTitle}}</h1>
+    <p>{{homeText.contactAddress}}</p>
+    <p>{{homeText.contactSite}}</p>
     <div class="contact-form">
       <div class="left">
         <input [(ngModel)]="email.from" name="email" type="email" placeholder="Votre Email *" required>
@@ -84,21 +67,21 @@
       </div>
     </div>
     <p *ngIf="mailMessage">{{mailMessage}}</p>
-    <button (click)="sendEmail()" class="send">Envoyer</button>
+    <button (click)="sendEmail()" class="send">{{homeText.contactButton}}</button>
   </div>
 </div>
 
-<div class="follow">
-  <h1>>> Suivez-moi <<</h1>
+<div *ngIf="homeText?.followTitle" class="follow">
+  <h1>{{homeText.followTitle}}</h1>
 
-  <div class="social-list">
-    <a class="social youtube" href="https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"></a>
-    <a class="social instagram" href="https://www.instagram.com/momen_time/"></a>
-    <a class="social facebook" href="https://www.facebook.com/momen.time.imagez.vous/"></a>
+  <div *ngIf="appConfig" class="social-list">
+    <a class="social youtube" [href]="appConfig.youtubeUrl"></a>
+    <a class="social instagram" [href]="appConfig.instagramUrl"></a>
+    <a class="social facebook" [href]="appConfig.facebookUrl"></a>
   </div>
 </div>
 
-<div class="footer">
-  <p>Momentime. Tout droits réservés</p>
-  <p>Développé par Cyril Lefebvre</p>
+<div *ngIf="homeText?.footerRights || homeText?.footerDeveloped" class="footer">
+  <p>{{homeText.footerRights}}</p>
+  <p>{{homeText.footerDeveloped}}</p>
 </div>

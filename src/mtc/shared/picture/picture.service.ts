@@ -17,7 +17,7 @@ export class PictureService {
     private appConfigService: AppConfigService,
     private sanitizer: DomSanitizer
   ) {
-    this.appConfig$ = this.appConfigService.chargerAppConfig();
+    this.appConfig$ = this.appConfigService.getAppConfig();
   }
 
   getPictures(category?: string): Observable<Picture[]> {

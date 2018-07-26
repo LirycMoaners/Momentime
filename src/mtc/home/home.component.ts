@@ -5,6 +5,11 @@ import { CategoryService } from '../shared/category/category.service';
 import { Email } from '../shared/email/email.model';
 import { EmailService } from '../shared/email/email.service';
 import { Anchor } from '../shared/anchor/anchor.model';
+import { PageTextService } from '../shared/page-text/page-text.service';
+import { PageText } from '../shared/page-text/page-text.model';
+import { AppConfigService } from '../shared/app-config/app-config.service';
+import { AppConfig } from '../shared/app-config/app-config.model';
+import { AnchorService } from '../shared/anchor/anchor.service';
 
 @Component({
   selector: 'mtc-home',
@@ -15,23 +20,31 @@ export class HomeComponent implements OnInit {
   public categories: Category[] = [];
   public email: Email = new Email();
   public mailMessage: string;
-  public anchorList: Anchor[] = [
-    {name: 'Présentation', fragment: 'presentation'},
-    {name: 'Galerie', fragment: 'portfolio'},
-    {name: 'Offre', fragment: 'pricing'},
-    {name: 'A Propos', fragment: 'about'},
-    {name: 'Contact', fragment: 'contact'},
-  ];
+  public anchorList: Anchor[];
+  public homeText: PageText;
+  public appConfig: AppConfig;
 
   constructor(
     private router: Router,
     private categoryService: CategoryService,
-    private emailService: EmailService
+    private emailService: EmailService,
+    private pageTextService: PageTextService,
+    private appConfigService: AppConfigService,
+    private anchorService: AnchorService
   ) { }
 
   ngOnInit() {
     this.categoryService.getCategories().subscribe((categories: Category[]) => {
       this.categories = categories;
+    });
+    this.pageTextService.getText('home', 'fr').subscribe((pageText: PageText) => {
+      this.homeText = pageText;
+    });
+    this.appConfigService.getAppConfig().subscribe((appConfig: AppConfig) => {
+      this.appConfig = appConfig;
+    });
+    this.anchorService.getAnchorList('fr').subscribe((anchorList: Anchor[]) => {
+      this.anchorList = anchorList;
     });
   }
 

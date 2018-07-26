@@ -1,5 +1,4 @@
 import { MenuItemService } from './shared/menu-item/menu-item.service';
-import { SocialService } from './shared/social/social.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +18,8 @@ import { AppConfigService } from './shared/app-config/app-config.service';
 import { HttpService } from './shared/http/http.service';
 import { PictureService } from './shared/picture/picture.service';
 import { EmailService } from './shared/email/email.service';
+import { PageTextService } from './shared/page-text/page-text.service';
+import { AnchorService } from './shared/anchor/anchor.service';
 
 @NgModule({
   declarations: [
@@ -38,13 +39,14 @@ import { EmailService } from './shared/email/email.service';
   ],
   providers: [
     PanelService,
-    SocialService,
     MenuItemService,
     AppConfigService,
     HttpService,
     CategoryService,
     PictureService,
-    EmailService
+    EmailService,
+    PageTextService,
+    AnchorService
   ],
   bootstrap: [MtcComponent]
 })
