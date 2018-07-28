@@ -225,6 +225,57 @@ button {
   }
 }
 
+.testimony {
+  background-color: $first-color;
+  padding-top: 10px;
+
+  @media screen and (min-width: $screen-md-min) {
+    padding-top: 30px;
+  }
+
+  .block {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+
+    h1 {
+      display: block;
+      text-align: center;
+    }
+
+    .carousel {
+      width: 500px;
+      height: 460px;
+      margin: 80px auto 0;
+      transform-style: preserve-3d;
+      transform: rotateX(-15deg) translateZ(-500px);
+
+      iframe {
+        position: absolute;
+        width: 500px;
+        height: 411px;
+        left: 10px;
+        top: 10px;
+
+        &:nth-child(1) {
+          transform: rotateY(0deg) translateZ(500px) rotateY(0deg) rotateX(15deg);
+        }
+        &:nth-child(2) {
+          transform: rotateY(72deg) translateZ(500px) rotateY(-72deg) rotateX(15deg);
+        }
+        &:nth-child(3) {
+          transform: rotateY(144deg) translateZ(500px) rotateY(-144deg) rotateX(15deg);
+        }
+        &:nth-child(4) {
+          transform: rotateY(216deg) translateZ(500px) rotateY(-216deg) rotateX(15deg);
+        }
+        &:nth-child(5) {
+          transform: rotateY(288deg) translateZ(500px) rotateY(-288deg) rotateX(15deg);
+        }
+      }
+    }
+  }
+}
+
 .contact {
   overflow: auto;
   background-color: $second-color;

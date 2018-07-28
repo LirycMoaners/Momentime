@@ -1,5 +1,5 @@
 {
-  "serviceUrl":"http://www.momen-time.com/api",
+  "serviceUrl":"http://localhost:3000",
   "facebookUrl": "https://www.facebook.com/momen.time.imagez.vous/",
   "instagramUrl": "https://www.instagram.com/momen_time/",
   "youtubeUrl": "https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"
