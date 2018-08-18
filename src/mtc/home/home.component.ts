@@ -10,6 +10,7 @@ import { PageText } from '../shared/page-text/page-text.model';
 import { AppConfigService } from '../shared/app-config/app-config.service';
 import { AppConfig } from '../shared/app-config/app-config.model';
 import { AnchorService } from '../shared/anchor/anchor.service';
+import { TestimonyService } from '../shared/testimony/testimony.service';
 
 @Component({
   selector: 'mtc-home',
@@ -23,6 +24,7 @@ export class HomeComponent implements OnInit {
   public anchorList: Anchor[];
   public homeText: PageText;
   public appConfig: AppConfig;
+  public testimonyList: string[];
 
   constructor(
     private router: Router,
@@ -30,7 +32,8 @@ export class HomeComponent implements OnInit {
     private emailService: EmailService,
     private pageTextService: PageTextService,
     private appConfigService: AppConfigService,
-    private anchorService: AnchorService
+    private anchorService: AnchorService,
+    private testimonyService: TestimonyService
   ) { }
 
   ngOnInit() {
@@ -45,6 +48,9 @@ export class HomeComponent implements OnInit {
     });
     this.anchorService.getAnchorList('fr').subscribe((anchorList: Anchor[]) => {
       this.anchorList = anchorList;
+    });
+    this.testimonyService.getTestimonyList().subscribe((testimonyList: string[]) => {
+      this.testimonyList = testimonyList;
     });
   }
 

@@ -20,6 +20,7 @@ import { PictureService } from './shared/picture/picture.service';
 import { EmailService } from './shared/email/email.service';
 import { PageTextService } from './shared/page-text/page-text.service';
 import { AnchorService } from './shared/anchor/anchor.service';
+import { TestimonyService } from './shared/testimony/testimony.service';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AnchorService } from './shared/anchor/anchor.service';
     PictureService,
     EmailService,
     PageTextService,
-    AnchorService
+    AnchorService,
+    TestimonyService
   ],
   bootstrap: [MtcComponent]
 })

@@ -10,6 +10,7 @@ export class PageText {
   public aboutTitle: string;
   public aboutText: string;
   public aboutSignature: string;
+  public testimonyTitle: string;
   public contactTitle: string;
   public contactAddress: string;
   public contactSite: string;

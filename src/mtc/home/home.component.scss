@@ -247,7 +247,30 @@ button {
       height: 460px;
       margin: 80px auto 0;
       transform-style: preserve-3d;
-      transform: rotateX(-15deg) translateZ(-500px);
+      transform: rotateX(-15deg) translateZ(-600px);
+
+      &:hover {
+        iframe {
+          animation-play-state: paused;
+        }
+      }
+
+      @mixin rotateCarouselItem($name, $startRotation) {
+        @keyframes #{$name} {
+          from {
+            transform: rotateY($startRotation) translateZ(600px) rotateY(-$startRotation) rotateX(15deg);
+          }
+
+          to {
+            transform: rotateY($startRotation + 360deg) translateZ(600px) rotateY(-$startRotation - 360deg) rotateX(15deg);
+          }
+        }
+
+        animation-duration: 40s;
+        animation-name: #{$name};
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
 
       iframe {
         position: absolute;
@@ -257,19 +280,19 @@ button {
         top: 10px;
 
         &:nth-child(1) {
-          transform: rotateY(0deg) translateZ(500px) rotateY(0deg) rotateX(15deg);
+          @include rotateCarouselItem(first, 0deg);
         }
         &:nth-child(2) {
-          transform: rotateY(72deg) translateZ(500px) rotateY(-72deg) rotateX(15deg);
+          @include rotateCarouselItem(second, 72deg);
         }
         &:nth-child(3) {
-          transform: rotateY(144deg) translateZ(500px) rotateY(-144deg) rotateX(15deg);
+          @include rotateCarouselItem(third, 144deg);
         }
         &:nth-child(4) {
-          transform: rotateY(216deg) translateZ(500px) rotateY(-216deg) rotateX(15deg);
+          @include rotateCarouselItem(fourth, 216deg);
         }
         &:nth-child(5) {
-          transform: rotateY(288deg) translateZ(500px) rotateY(-288deg) rotateX(15deg);
+          @include rotateCarouselItem(fifth, 288deg);
         }
       }
     }
