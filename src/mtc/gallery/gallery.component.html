@@ -18,16 +18,18 @@
 
 <div class="gallery-content">
   <div class="block">
-    <ng-container *ngFor="let picture of pictures">
-      <div *ngIf="picture.isShowed"
-        [style.background-image]="picture.url"
-        (click)="onClickPicture(picture)"></div>
+    <ng-container *ngFor="let category of categories">
+      <ng-container *ngIf="category.isShown">
+        <ng-container *ngFor="let picture of category.pictures; let i = index">
+          <div [style.background-image]="picture" (click)="onClickPicture(category.bigPictures[i])"></div>
+        </ng-container>
+      </ng-container>
     </ng-container>
   </div>
 </div>
 
 <div *ngIf="bigPicture" class="big-picture" (click)="closePicture()">
-   <div class="picture" [style.background-image]="bigPicture.url" (click)="changePicture(true, $event)">
+   <div class="picture" [style.background-image]="bigPicture" (click)="changePicture(true, $event)">
      <div class="arrow previous" (click)="changePicture(false, $event)">
        <span><</span>
       </div>

@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.categoryService.getCategories().subscribe((categories: Category[]) => {
+    this.categoryService.getLiteCategories().subscribe((categories: Category[]) => {
       this.categories = categories;
     });
     this.pageTextService.getText('home', 'fr').subscribe((pageText: PageText) => {

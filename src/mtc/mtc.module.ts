@@ -13,10 +13,9 @@ import { PanelService } from './shared/panel/panel.service';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { CategoryService } from './shared/category/category.service';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppConfigService } from './shared/app-config/app-config.service';
 import { HttpService } from './shared/http/http.service';
-import { PictureService } from './shared/picture/picture.service';
 import { EmailService } from './shared/email/email.service';
 import { PageTextService } from './shared/page-text/page-text.service';
 import { AnchorService } from './shared/anchor/anchor.service';
@@ -35,7 +34,7 @@ import { TestimonyService } from './shared/testimony/testimony.service';
     BrowserModule,
     BrowserAnimationsModule,
     MtcRoutingModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule
   ],
   providers: [
@@ -44,7 +43,6 @@ import { TestimonyService } from './shared/testimony/testimony.service';
     AppConfigService,
     HttpService,
     CategoryService,
-    PictureService,
     EmailService,
     PageTextService,
     AnchorService,

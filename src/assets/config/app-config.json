@@ -1,5 +1,6 @@
 {
-  "serviceUrl":"http://localhost:3000",
+  "serviceUrl":"http://localhost",
+  "subdomain":"/momentime-back/api",
   "facebookUrl": "https://www.facebook.com/momen.time.imagez.vous/",
   "instagramUrl": "https://www.instagram.com/momen_time/",
   "youtubeUrl": "https://www.youtube.com/channel/UCh_K4rAA8CEzAu6pK-2gPHQ"

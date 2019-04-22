@@ -1,36 +1,38 @@
-import { Http, Response, RequestOptionsArgs, RequestOptions, RequestMethod, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { AppConfig } from '../app-config/app-config.model';
 import { Observable } from 'rxjs';
 import { AppConfigService } from '../app-config/app-config.service';
 import { flatMap } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class HttpService {
-  private appConfig: AppConfig;
-  private options: RequestOptionsArgs;
+  private headers: HttpHeaders;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private appConfigService: AppConfigService
   ) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    this.options = new RequestOptions({method: RequestMethod.Get, headers: headers });
+    this.headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   }
 
-  public get(webApiUrl: string, options?: RequestOptionsArgs): Observable<Response> {
-    this.options = options ? options : this.options;
+  public get(webApiUrl: string, headers?: HttpHeaders): Observable<any> {
+    this.headers = headers ? headers : this.headers;
     return this.appConfigService.getAppConfig()
       .pipe(
-        flatMap((appConfig: AppConfig) => this.http.get(appConfig.serviceUrl + webApiUrl, options))
+        flatMap((appConfig: AppConfig) =>
+          this.http.get(appConfig.serviceUrl + appConfig.subdomain + webApiUrl, {headers: headers})
+        )
       );
   }
 
-  public post(webApiUrl: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
-    this.options = options ? options : this.options;
+  public post(webApiUrl: string, body: any, headers?: HttpHeaders): Observable<any> {
+    this.headers = headers ? headers : this.headers;
     return this.appConfigService.getAppConfig()
       .pipe(
-        flatMap((appConfig: AppConfig) => this.http.post(appConfig.serviceUrl + webApiUrl, body, options))
+        flatMap((appConfig: AppConfig) =>
+          this.http.post(appConfig.serviceUrl + appConfig.subdomain + webApiUrl, body, {headers: headers})
+        )
       );
   }
 }
